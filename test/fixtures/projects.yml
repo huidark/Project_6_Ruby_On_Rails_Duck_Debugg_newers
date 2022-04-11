@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ProjectName: MyString
+  ProjectDescription: MyString
+  StartDate: MyString
+  EndDate: MyString
+  GroupID: 1
+
+two:
+  ProjectName: MyString
+  ProjectDescription: MyString
+  StartDate: MyString
+  EndDate: MyString
+  GroupID: 1

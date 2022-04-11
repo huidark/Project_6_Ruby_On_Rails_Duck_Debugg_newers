@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Admin: false
+  Name: MyString
+  Email: MyString
+  GroupID: 1
+  RosterID: 1
+  password_digest: MyString
+
+two:
+  Admin: false
+  Name: MyString
+  Email: MyString
+  GroupID: 1
+  RosterID: 1
+  password_digest: MyString
