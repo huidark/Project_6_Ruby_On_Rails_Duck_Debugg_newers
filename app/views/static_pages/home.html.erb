@@ -1,0 +1,16 @@
+<% provide(:title, "Home") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Peer Evaluation Tool</title>  </head>
+  <body>
+    <div class="center jumbotron">
+        <h1>Duck Debuggers Peer Evaluation Tool</h1>
+
+
+  <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Log in", login_path, class: "btn btn-lg btn-primary"%>
+</div>
+
+  </body>
+</html>

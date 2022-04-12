@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :groups
+  get 'sessions/new'
+  get 'users/create'
+  get 'static_pages/home'
+  root 'static_pages#home'
+  
+  get '/signup', to: 'users#new'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'session#destroy'
 
+  resources :users
 end
