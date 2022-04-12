@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path
     else 
-      puts "error"
       render 'new'
     end
   end
