@@ -1,0 +1,16 @@
+<% provide(:title, "Admin Dashboard") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Admin Dashboard</title>  </head>
+  <body>
+    <div class="center jumbotron">
+        <h1>Admin Dashboard</h1>
+
+
+  <%= link_to "Groups", groups_path, class: "btn btn-lg btn-primary" %>
+
+</div>
+
+  </body>
+</html>

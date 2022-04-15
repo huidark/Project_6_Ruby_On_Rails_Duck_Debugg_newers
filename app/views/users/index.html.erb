@@ -1,0 +1,15 @@
+<h1>Dashboard</h1>
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+
+<div id="users">
+  <% @Users.each do |user| %>
+    <%= render user %>
+    <p>
+      <%= link_to "Show this user", user %>
+    </p>
+  <% end %>
+</div>
+ 

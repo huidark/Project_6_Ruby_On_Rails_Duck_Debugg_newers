@@ -10,29 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_11_150405) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_14_230707) do
   create_table "groups", force: :cascade do |t|
-    t.string "GroupName"
+    t.string "groupname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "ProjectName"
-    t.string "ProjectDescription"
-    t.string "StartDate"
-    t.string "EndDate"
-    t.integer "GroupID"
+    t.string "projectname"
+    t.string "projectdescription"
+    t.string "startdate"
+    t.string "enddate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.boolean "Admin"
-    t.string "Name"
-    t.string "Email"
-    t.integer "GroupID"
-    t.integer "RosterID"
+    t.boolean "admin"
+    t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
