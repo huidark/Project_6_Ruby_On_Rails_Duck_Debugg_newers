@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   # get '/dashboardU', to: 'users#index'
   get '/dashboardA', to: 'static_pages#dashboardA'
-  get '/dashboardU', to: 'static_pages#dashboardU'
+  get '/dashboardU', to: 'users#dashboardU'
   resources :groups
 
 
