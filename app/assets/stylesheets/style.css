@@ -1,0 +1,41 @@
+body {
+    color: antiquewhite;
+    background: #868B8E;
+
+}
+
+h1 {
+    font-family: 'Diagon', sans-serif;
+    color:#00A9FF;
+}
+.centerjumbotron {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.row{
+    color:white;
+    position: relative;
+    display: inline-block;
+    background: #868B8E;
+}
+
+input[type="submit"] {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    bottom: -10px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #00A9FF;
+    background-size: 200%;
+    background-position: 0%;
+    transition: 0.4s;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+  }
