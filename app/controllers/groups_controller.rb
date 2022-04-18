@@ -30,22 +30,26 @@ class GroupsController < ApplicationController
 
   def edit
     @group = Group.find(params[:id])
+    
   end
 
   def update
-    respond_to do 
     @group = Group.find(params[:id])
-    if @group.update(group_params)
+    if @group.update(group_params2)
       flash[:success] = "Profile updated"
       redirect_to groupsI_path
     else
       render 'edit'
     end
   end
-end
-
-
+  
   def group_params
     params.permit(:groupname)
+  end
+
+
+
+  def group_params2
+    params.require(:group).permit(:groupname)
   end
 end

@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email])
-    if user #&& user.authenticate(sess_params)
+    if user #&& user.authenticate(sess_params2)
       log_in user
       if user.admin
         redirect_to dashboardA_path
@@ -21,6 +21,9 @@ class SessionsController < ApplicationController
 
   # def sess_params
   #   params.require(:session).permit(:password_digest)
+  # end
+  # def sess_params2
+  #   params.permit(:password_digest)
   # end
 
   def destroy
