@@ -1,0 +1,22 @@
+<h1 align="center">New project</h1>
+
+<br>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(model: @project, local: true) do |f| %>
+
+      <%= f.label :projectname %>
+      <%= f.text_field :projectname, class: 'form-control' %>
+
+      <%= f.label :projectdescription %>
+      <%= f.text_field :projectdescription, class: 'form-control' %>
+
+      <%= f.submit "Create Project", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<br>
+<div>
+  <%= link_to "Back to projects", projects_path %>
+</div>
