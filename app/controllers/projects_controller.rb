@@ -57,10 +57,6 @@ class ProjectsController < ApplicationController
     end
   end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:user).permit(:projectname, :projectdescription)
-    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -68,4 +64,7 @@ class ProjectsController < ApplicationController
       @project = Project.find(params[:id])
     end
 
+    def project_params
+      params.require(:project).permit(:projectname, :projectdescription)
+    end
 end
