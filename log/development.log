@@ -44024,3 +44024,407 @@ Processing by UsersController#index as TURBO_STREAM
 Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 7963)
 
 
+Started GET "/users" for 127.0.0.1 at 2022-04-18 22:04:43 -0400
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.7ms | Allocations: 289)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 58)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/index.html.erb within layouts/application (Duration: 30.0ms | Allocations: 12227)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 147)
+  Rendered layout layouts/application.html.erb (Duration: 86.0ms | Allocations: 47825)
+Completed 200 OK in 113ms (Views: 90.5ms | ActiveRecord: 0.9ms | Allocations: 57292)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-18 22:04:45 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 2.1ms | Allocations: 474)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3076)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4276)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-18 22:04:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/signup" for 127.0.0.1 at 2022-04-18 22:04:52 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 338.4ms | Allocations: 341312)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 50)
+  Rendered layout layouts/application.html.erb (Duration: 344.0ms | Allocations: 343850)
+Completed 200 OK in 346ms (Views: 344.6ms | ActiveRecord: 0.0ms | Allocations: 344520)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-04-18 22:05:02 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"sfsadf", "email"=>"s@gmail.com", "password_digest"=>"[FILTERED]", "admin"=>"1"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "s@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("admin", "name", "email", "password_digest", "created_at", "updated_at", "group_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["admin", 1], ["name", "sfsadf"], ["email", "s@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-04-19 02:05:02.769723"], ["updated_at", "2022-04-19 02:05:02.769723"], ["group_id", nil]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 22ms (ActiveRecord: 5.0ms | Allocations: 7436)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-04-18 22:05:02 -0400
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 969)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3592)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 4836)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-04-18 22:05:09 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"s@gmail.com", "password_digest"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "s@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/dashboardA
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 1364)
+
+
+Started GET "/dashboardA" for 127.0.0.1 at 2022-04-18 22:05:09 -0400
+Processing by StaticPagesController#dashboardA as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/dashboardA.html.erb within layouts/application
+  Rendered static_pages/dashboardA.html.erb within layouts/application (Duration: 0.9ms | Allocations: 324)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2711)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 3170)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-18 22:05:11 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered users/index.html.erb within layouts/application (Duration: 13.8ms | Allocations: 5298)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 7679)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 0.2ms | Allocations: 8140)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2022-04-18 22:05:13 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered users/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 768)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 3131)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.3ms | Allocations: 4813)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 22:05:15 -0400
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.6ms | Allocations: 192)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 11.5ms | Allocations: 4645)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | Allocations: 7231)
+Completed 200 OK in 21ms (Views: 15.0ms | ActiveRecord: 2.3ms | Allocations: 11080)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 22:05:17 -0400
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.6ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.4ms | Allocations: 54)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 8.2ms | Allocations: 1267)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 3648)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.2ms | Allocations: 4161)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 22:05:24 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 587)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2950)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 4691)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 22:05:30 -0400
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1260)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3641)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 4099)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 22:05:31 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2736)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 3756)
+
+
+Started GET "/groups/3/edit" for 127.0.0.1 at 2022-04-18 22:05:32 -0400
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:32:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 853)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3219)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 4294)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-04-18 22:05:44 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 1.1ms | Allocations: 472)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2846)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 0.0ms | Allocations: 3290)
+
+
+Started GET "/signup" for 127.0.0.1 at 2022-04-18 22:05:45 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1008)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3382)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 3851)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-18 22:05:45 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 141)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2528)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 2975)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-18 22:05:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 22:05:46 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 5379)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 7978)
+Completed 200 OK in 18ms (Views: 15.4ms | ActiveRecord: 0.6ms | Allocations: 9708)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 22:05:54 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 3.2ms | Allocations: 1832)
+  Rendered projects/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2163)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4532)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 5130)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 22:06:17 -0400
+Processing by ProjectsController#new as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/projects_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.6ms | Allocations: 1323)
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1473)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 15560)
+Completed 200 OK in 30ms (Views: 20.6ms | ActiveRecord: 0.9ms | Allocations: 20910)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-18 22:06:21 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"ff", "projectdescription"=>"ffff", "startdate"=>"f", "enddate"=>"f"}, "commit"=>"Create Project"}
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.9ms | Allocations: 1746)
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1883)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 4355)
+Completed 422 Unprocessable Entity in 17ms (Views: 8.9ms | ActiveRecord: 0.0ms | Allocations: 10187)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 22:06:33 -0400
+Processing by ProjectsController#new as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/projects_controller.rb:15:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 3.2ms | Allocations: 1324)
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1474)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 28.1ms | Allocations: 15588)
+Completed 200 OK in 61ms (Views: 49.7ms | ActiveRecord: 1.0ms | Allocations: 20886)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-18 22:06:41 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"test", "projectdescription"=>"test2", "startdate"=>"4421", "enddate"=>"4422"}, "commit"=>"Create Project"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("projectname", "projectdescription", "startdate", "enddate", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["projectname", "test"], ["projectdescription", "test2"], ["startdate", "4421"], ["enddate", "4422"], ["created_at", "2022-04-19 02:06:41.062924"], ["updated_at", "2022-04-19 02:06:41.062924"]]
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/projects/2
+Completed 302 Found in 12ms (ActiveRecord: 3.3ms | Allocations: 3020)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-18 22:06:41 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.6ms | Allocations: 175)
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1013)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3378)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 5289)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 22:06:42 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 964)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3350)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.2ms | Allocations: 3812)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 22:07:00 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.7ms | Allocations: 1098)
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1227)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3596)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.0ms | Allocations: 4060)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReviews (20220419161357)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220419161357"]]
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

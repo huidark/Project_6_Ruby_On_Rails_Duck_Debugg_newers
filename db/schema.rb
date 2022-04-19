@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_18_015544) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_19_161357) do
   create_table "groups", force: :cascade do |t|
     t.string "groupname"
     t.datetime "created_at", null: false
@@ -22,6 +22,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_18_015544) do
     t.string "projectdescription"
     t.string "startdate"
     t.string "enddate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "score"
+    t.string "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

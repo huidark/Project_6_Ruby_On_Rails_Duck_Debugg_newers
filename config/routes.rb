@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reviews
   resources :projects
   root 'static_pages#home'
   
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
   get '/dashboardA', to: 'static_pages#dashboardA'
   get '/add_to_group/:id', to: 'users#add_to_group', :as => 'add_to_group'
   post '/add_to_group', to: 'users#update_group'
+  get '/'
   resources :groups
 
 
