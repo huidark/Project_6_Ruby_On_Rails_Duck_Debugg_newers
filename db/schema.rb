@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_161357) do
     t.string "enddate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "group_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -43,5 +44,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_19_161357) do
     t.integer "group_id"
   end
 
+  add_foreign_key "projects", "groups"
   add_foreign_key "users", "groups"
 end

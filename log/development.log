@@ -44024,6 +44024,7 @@ Processing by UsersController#index as TURBO_STREAM
 Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.3ms | Allocations: 7963)
 
 
+<<<<<<< HEAD
 Started GET "/users" for 127.0.0.1 at 2022-04-18 22:04:43 -0400
   [1m[35m (3.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
@@ -44134,11 +44135,113 @@ Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 3170)
 
 
 Started GET "/users" for 127.0.0.1 at 2022-04-18 22:05:11 -0400
+=======
+Started GET "/users/27" for 127.0.0.1 at 2022-04-19 12:03:12 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"27"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 27], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.5ms | Allocations: 296)
+  Rendered users/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2014)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 185.9ms | Allocations: 59871)
+Completed 200 OK in 244ms (Views: 191.3ms | ActiveRecord: 0.8ms | Allocations: 77771)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-19 12:03:16 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 3.2ms | Allocations: 478)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 3245)
+Completed 200 OK in 8ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 4453)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-19 12:03:16 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/login" for 127.0.0.1 at 2022-04-19 12:03:19 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 416.9ms | Allocations: 340091)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered layout layouts/application.html.erb (Duration: 419.9ms | Allocations: 342867)
+Completed 200 OK in 421ms (Views: 420.7ms | ActiveRecord: 0.0ms | Allocations: 344079)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-19 12:03:27 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/signup" for 127.0.0.1 at 2022-04-19 12:03:29 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 11.4ms | Allocations: 2146)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layout layouts/application.html.erb (Duration: 18.0ms | Allocations: 4825)
+Completed 200 OK in 20ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 5441)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-04-19 12:03:49 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nolan Song 24", "email"=>"nolansong24@gmail.com", "password_digest"=>"[FILTERED]", "admin"=>"1"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("admin", "name", "email", "password_digest", "created_at", "updated_at", "group_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["admin", 1], ["name", "Nolan Song 24"], ["email", "nolansong24@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-04-19 16:03:49.463361"], ["updated_at", "2022-04-19 16:03:49.463361"], ["group_id", nil]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 19ms (ActiveRecord: 4.8ms | Allocations: 5742)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-04-19 12:03:49 -0400
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.6ms | Allocations: 502)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 3094)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 3629)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-04-19 12:04:01 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"nolansong24@gmail.com", "password_digest"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://127.0.0.1:3000/dashboardA
+Completed 302 Found in 2ms (ActiveRecord: 0.2ms | Allocations: 1133)
+
+
+Started GET "/dashboardA" for 127.0.0.1 at 2022-04-19 12:04:01 -0400
+Processing by StaticPagesController#dashboardA as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/dashboardA.html.erb within layouts/application
+  Rendered static_pages/dashboardA.html.erb within layouts/application (Duration: 2.7ms | Allocations: 346)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2900)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 3353)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-19 12:04:06 -0400
+>>>>>>> 3468090abde6711c98e1038a0a2a45e465647b50
 Processing by UsersController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering users/index.html.erb within layouts/application
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
   ↳ app/views/users/index.html.erb:8
+<<<<<<< HEAD
   Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 57)
   Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
   Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 54)
@@ -44232,11 +44335,519 @@ Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.3ms | Allocations: 4691
 
 
 Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 22:05:30 -0400
+=======
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 60)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/index.html.erb within layouts/application (Duration: 12.9ms | Allocations: 5663)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 19.5ms | Allocations: 8210)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.2ms | Allocations: 8734)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:04:10 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 502)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3029)
+Completed 200 OK in 12ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 4065)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:04:14 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 16.9ms | Allocations: 4955)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 53)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 7626)
+Completed 200 OK in 39ms (Views: 19.6ms | ActiveRecord: 0.5ms | Allocations: 14579)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:04:18 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"group_id"=>"4"}, "id"=>"32", "commit"=>"Add"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "group_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-19 16:04:18.202452"], ["group_id", 4], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 16ms (ActiveRecord: 4.9ms | Allocations: 4762)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:04:18 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 61)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 509)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 3037)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 4098)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:04:21 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1472)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 4004)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 5048)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:04:23 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"group_id"=>"3"}, "id"=>"32", "commit"=>"Add"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "group_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-19 16:04:23.054327"], ["group_id", 3], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 31ms (ActiveRecord: 3.3ms | Allocations: 4225)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:04:23 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3037)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 4071)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:04:25 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1418)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3950)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.5ms | Allocations: 4993)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:04:27 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"group_id"=>"4"}, "id"=>"32", "commit"=>"Add"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "group_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-19 16:04:27.249260"], ["group_id", 4], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 11ms (ActiveRecord: 2.7ms | Allocations: 4227)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:04:27 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 3024)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.1ms | Allocations: 4057)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-19 12:04:35 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.3ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/index.html.erb within layouts/application (Duration: 22.1ms | Allocations: 5359)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 28.5ms | Allocations: 7906)
+Completed 200 OK in 29ms (Views: 28.7ms | ActiveRecord: 0.1ms | Allocations: 8374)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-19 12:04:41 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 144)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2697)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 3140)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-19 12:04:41 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/login" for 127.0.0.1 at 2022-04-19 12:04:53 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.8ms | Allocations: 475)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 3015)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms | Allocations: 3461)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-19 12:04:55 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/dashboardA" for 127.0.0.1 at 2022-04-19 12:04:59 -0400
+Processing by StaticPagesController#dashboardA as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/dashboardA.html.erb within layouts/application
+  Rendered static_pages/dashboardA.html.erb within layouts/application (Duration: 0.2ms | Allocations: 121)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2674)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 3117)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-19 12:05:02 -0400
 Processing by GroupsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering groups/index.html.erb within layouts/application
   [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
   ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 1.3ms | Allocations: 194)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered groups/_group.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered groups/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1992)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 4742)
+Completed 200 OK in 17ms (Views: 16.2ms | ActiveRecord: 0.1ms | Allocations: 5944)
+
+
+Started GET "/groups/4" for 127.0.0.1 at 2022-04-19 12:05:04 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 58)
+  Rendered groups/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 590)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 9.2ms | Allocations: 3117)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 4899)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-19 12:05:16 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.2ms | Allocations: 57)
+  Rendered users/index.html.erb within layouts/application (Duration: 24.4ms | Allocations: 5358)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 27.6ms | Allocations: 7905)
+Completed 200 OK in 29ms (Views: 28.0ms | ActiveRecord: 0.1ms | Allocations: 8366)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:05:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 522)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 3049)
+Completed 200 OK in 11ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 4072)
+
+
+Started GET "/users/32/edit" for 127.0.0.1 at 2022-04-19 12:05:19 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.0ms | Allocations: 1005)
+  Rendered users/edit.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1406)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 3933)
+Completed 200 OK in 19ms (Views: 9.8ms | ActiveRecord: 0.1ms | Allocations: 5010)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:05:24 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nolan Song 244", "email"=>"nolansong24@gmail.com"}, "commit"=>"Save changes", "id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (2.9ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Nolan Song 244"], ["updated_at", "2022-04-19 16:05:24.541937"], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 13ms (ActiveRecord: 5.5ms | Allocations: 4339)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:05:24 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 3024)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.1ms | Allocations: 4057)
+
+
+Started GET "/users/32/edit" for 127.0.0.1 at 2022-04-19 12:05:42 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 0.8ms | Allocations: 652)
+  Rendered users/edit.html.erb within layouts/application (Duration: 1.1ms | Allocations: 814)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 3341)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.1ms | Allocations: 4371)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:05:48 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nolan Song 24", "email"=>"nolansong244@gmail.com"}, "commit"=>"Save changes", "id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong244@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Nolan Song 24"], ["email", "nolansong244@gmail.com"], ["updated_at", "2022-04-19 16:05:48.425330"], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 13ms (ActiveRecord: 3.7ms | Allocations: 4247)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:05:48 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3024)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 4057)
+
+
+Started GET "/users/32/edit" for 127.0.0.1 at 2022-04-19 12:05:50 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:20:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.5ms | Allocations: 652)
+  Rendered users/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 814)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3341)
+Completed 200 OK in 19ms (Views: 11.6ms | ActiveRecord: 0.1ms | Allocations: 4371)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:05:55 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Nolan Song 24", "email"=>"nolansong24@gmail.com"}, "commit"=>"Save changes", "id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "email" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email", "nolansong24@gmail.com"], ["updated_at", "2022-04-19 16:05:55.021151"], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 10ms (ActiveRecord: 2.2ms | Allocations: 4231)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:05:55 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 3024)
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 4057)
+
+
+Started GET "/groups" for 127.0.0.1 at 2022-04-19 12:07:06 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/new.html.erb within layouts/application (Duration: 161.1ms | Allocations: 341326)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 159)
+  Rendered layout layouts/application.html.erb (Duration: 194.8ms | Allocations: 378991)
+Completed 200 OK in 226ms (Views: 196.6ms | ActiveRecord: 0.6ms | Allocations: 394882)
+
+
+Started GET "/dashboardA" for 127.0.0.1 at 2022-04-19 12:07:12 -0400
+Processing by StaticPagesController#dashboardA as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/dashboardA.html.erb within layouts/application
+  Rendered static_pages/dashboardA.html.erb within layouts/application (Duration: 0.6ms | Allocations: 432)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3199)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.0ms | Allocations: 4323)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-19 12:07:13 -0400
+>>>>>>> 3468090abde6711c98e1038a0a2a45e465647b50
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+<<<<<<< HEAD
   Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
   Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
   Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
@@ -44308,11 +44919,278 @@ Started GET "/style.css" for 127.0.0.1 at 2022-04-18 22:05:45 -0400
 ActionController::RoutingError (No route matches [GET] "/style.css"):
   
 Started GET "/projects" for 127.0.0.1 at 2022-04-18 22:05:46 -0400
+=======
+  Rendered groups/_group.html.erb (Duration: 0.5ms | Allocations: 256)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered groups/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 2364)
+  Rendered layouts/_header.html.erb (Duration: 7.4ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 5032)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.1ms | Allocations: 5711)
+
+
+Started GET "/groups/4" for 127.0.0.1 at 2022-04-19 12:07:18 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.9ms | Allocations: 694)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3330)
+Completed 200 OK in 14ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 6709)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-19 12:13:12 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.8ms | Allocations: 289)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered groups/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 6571)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 69.7ms | Allocations: 44772)
+Completed 200 OK in 89ms (Views: 71.1ms | ActiveRecord: 0.7ms | Allocations: 54405)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-04-19 12:13:15 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:8
+  Rendered users/_user.html.erb (Duration: 0.6ms | Allocations: 195)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 2.2ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.0ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 57)
+  Rendered users/index.html.erb within layouts/application (Duration: 30.1ms | Allocations: 10511)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 34.2ms | Allocations: 13264)
+Completed 200 OK in 48ms (Views: 36.2ms | ActiveRecord: 0.7ms | Allocations: 16987)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:13:17 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 72)
+  Rendered users/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 983)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 3619)
+Completed 200 OK in 22ms (Views: 8.9ms | ActiveRecord: 0.2ms | Allocations: 7007)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:13:22 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 198.8ms | Allocations: 341164)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 53)
+  Rendered layout layouts/application.html.erb (Duration: 212.5ms | Allocations: 343841)
+Completed 200 OK in 218ms (Views: 214.9ms | ActiveRecord: 0.4ms | Allocations: 345006)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:13:26 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"group_id"=>"3"}, "id"=>"32", "commit"=>"Add"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (2.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "group_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-19 16:13:26.412113"], ["group_id", 3], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 14ms (ActiveRecord: 4.5ms | Allocations: 6190)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:13:26 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 61)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 556)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3086)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 4198)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:13:31 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (0.0ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 5.8ms | Allocations: 1472)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 4006)
+Completed 200 OK in 10ms (Views: 8.5ms | ActiveRecord: 0.1ms | Allocations: 5065)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:13:33 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"group_id"=>"4"}, "id"=>"32", "commit"=>"Add"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "group_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-19 16:13:33.182915"], ["group_id", 4], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 14ms (ActiveRecord: 4.0ms | Allocations: 4232)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:13:33 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.0ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 3024)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 4057)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:13:36 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (1.7ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1418)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 3950)
+Completed 200 OK in 25ms (Views: 16.2ms | ActiveRecord: 1.8ms | Allocations: 4993)
+
+
+Started PATCH "/users/32" for 127.0.0.1 at 2022-04-19 12:13:38 -0400
+Processing by UsersController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"group_id"=>"3"}, "id"=>"32", "commit"=>"Add"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? AND "users"."id" != ? LIMIT ?[0m  [["email", "nolansong24@gmail.com"], ["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = ?, "group_id" = ? WHERE "users"."id" = ?[0m  [["updated_at", "2022-04-19 16:13:38.493942"], ["group_id", 3], ["id", 32]]
+  ↳ app/controllers/users_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:25:in `update'
+Redirected to http://127.0.0.1:3000/users/32
+Completed 302 Found in 10ms (ActiveRecord: 2.4ms | Allocations: 4221)
+
+
+Started GET "/users/32" for 127.0.0.1 at 2022-04-19 12:13:38 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/_user.html.erb (Duration: 0.1ms | Allocations: 58)
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 497)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 3029)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 0.1ms | Allocations: 4063)
+
+
+Started GET "/add_to_group/32" for 127.0.0.1 at 2022-04-19 12:13:39 -0400
+Processing by UsersController#add_to_group as HTML
+  Parameters: {"id"=>"32"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:44:in `add_to_group'
+  Rendering layout layouts/application.html.erb
+  Rendering users/add_to_group.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/users/add_to_group.html.erb:8:in `collect'
+  Rendered users/add_to_group.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1418)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 3955)
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.2ms | Allocations: 4999)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-19 12:16:06 -0400
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 872)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 163)
+  Rendered layout layouts/application.html.erb (Duration: 53.2ms | Allocations: 38890)
+Completed 200 OK in 74ms (Views: 57.0ms | ActiveRecord: 0.0ms | Allocations: 45065)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2022-04-19 12:16:06 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:16:07 -0400
+>>>>>>> 3468090abde6711c98e1038a0a2a45e465647b50
 Processing by ProjectsController#index as HTML
   Rendering layout layouts/application.html.erb
   Rendering projects/index.html.erb within layouts/application
   [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
   ↳ app/views/projects/index.html.erb:16
+<<<<<<< HEAD
   Rendered projects/index.html.erb within layouts/application (Duration: 10.2ms | Allocations: 5379)
   Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
   Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 7978)
@@ -44428,3 +45306,463 @@ Migrating to CreateReviews (20220419161357)
   [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+=======
+  Rendered projects/index.html.erb within layouts/application (Duration: 11.3ms | Allocations: 6711)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 9507)
+Completed 200 OK in 25ms (Views: 17.9ms | ActiveRecord: 0.5ms | Allocations: 13540)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-19 12:16:11 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 150.6ms | Allocations: 345283)
+  Rendered projects/new.html.erb within layouts/application (Duration: 151.6ms | Allocations: 345641)
+  Rendered layout layouts/application.html.erb (Duration: 151.9ms | Allocations: 345728)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.0ms | Allocations: 349078)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<ActionView::Base:0x0000000000f1b8>):
+    32:   </div>
+    33: 
+    34:   <div class="field">
+    35:     <%= f.label :group %>
+    36:     <%= f.select :group_id, @groups.collect { |p| [p.groupname, p.id]}, {}, prompt: 'group'%>
+    37:   </div>
+    38: 
+  
+app/views/projects/_form.html.erb:35
+app/views/projects/_form.html.erb:1
+app/views/projects/new.html.erb:3
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-19 12:16:27 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/projects/_form.html.erb:36:in `collect'
+  Rendered projects/_form.html.erb (Duration: 9.5ms | Allocations: 5984)
+  Rendered projects/new.html.erb within layouts/application (Duration: 15.1ms | Allocations: 6372)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 9550)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.4ms | Allocations: 10906)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-19 12:16:56 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"Proj1", "projectdescription"=>"proj1description", "startdate"=>"1100", "enddate"=>"1102", "group_id"=>"4"}, "commit"=>"Create Project"}
+[31mUnpermitted parameter: :group_id. Context: { controller: ProjectsController, action: create, request: #<ActionDispatch::Request:0x00007f41a4039408>, params: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"Proj1", "projectdescription"=>"proj1description", "startdate"=>"1100", "enddate"=>"1102", "group_id"=>"4"}, "commit"=>"Create Project", "controller"=>"projects", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("projectname", "projectdescription", "startdate", "enddate", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["projectname", "Proj1"], ["projectdescription", "proj1description"], ["startdate", "1100"], ["enddate", "1102"], ["created_at", "2022-04-19 16:16:56.293970"], ["updated_at", "2022-04-19 16:16:56.293970"]]
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:28:in `block in create'
+Redirected to http://127.0.0.1:3000/projects/2
+Completed 302 Found in 10ms (ActiveRecord: 2.4ms | Allocations: 4235)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:16:56 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.5ms | Allocations: 242)
+  Rendered projects/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1427)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 4080)
+Completed 200 OK in 24ms (Views: 7.5ms | ActiveRecord: 0.3ms | Allocations: 10544)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:17:43 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.7ms | Allocations: 196)
+  Rendered projects/show.html.erb within layouts/application (Duration: 17.9ms | Allocations: 8418)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 8515)
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.1ms | Allocations: 10496)
+
+
+  
+ActionView::Template::Error (undefined method `groupname' for nil:NilClass):
+    23: 
+    24: <p>
+    25:   <strong>Group:</strong>
+    26:   <%= @project.group.groupname %>
+    27: </p>
+    28: 
+    29: <div>
+  
+app/views/projects/show.html.erb:26
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:17:49 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.3ms | Allocations: 196)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1086)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4187)
+Completed 200 OK in 12ms (Views: 9.4ms | ActiveRecord: 0.1ms | Allocations: 6181)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-19 12:17:55 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/projects/_form.html.erb:36:in `collect'
+  Rendered projects/_form.html.erb (Duration: 8.3ms | Allocations: 2783)
+  Rendered projects/new.html.erb within layouts/application (Duration: 10.1ms | Allocations: 3113)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 5649)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.1ms | Allocations: 6239)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:18:33 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.4ms | Allocations: 196)
+  Rendered projects/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4154)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 4241)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.1ms | Allocations: 6106)
+
+
+  
+ActionView::Template::Error (undefined method `group_id' for #<Project id: 2, projectname: "Proj1", projectdescription: "proj1description", startdate: "1100", enddate: "1102", created_at: "2022-04-19 16:16:56.293970000 +0000", updated_at: "2022-04-19 16:16:56.293970000 +0000">
+Did you mean?  group):
+    23: 
+    24: <p>
+    25:   <strong>Group:</strong>
+    26:   <%= @project.group_id %>
+    27: </p>
+    28: 
+    29: <div>
+  
+app/views/projects/show.html.erb:26
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:18:58 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 92)
+  Rendered projects/show.html.erb within layouts/application (Duration: 17.5ms | Allocations: 3633)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | Allocations: 3720)
+Completed 500 Internal Server Error in 32ms (ActiveRecord: 1.0ms | Allocations: 10326)
+
+
+  
+ActionView::Template::Error (undefined method `group_id' for #<Project id: 2, projectname: "Proj1", projectdescription: "proj1description", startdate: "1100", enddate: "1102", created_at: "2022-04-19 16:16:56.293970000 +0000", updated_at: "2022-04-19 16:16:56.293970000 +0000">
+Did you mean?  group):
+    23: 
+    24: <p>
+    25:   <strong>Group:</strong>
+    26:   <%= @project.group_id %>
+    27: </p>
+    28: 
+    29: <div>
+  
+app/views/projects/show.html.erb:26
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-19 12:19:01 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/projects/_form.html.erb:36:in `collect'
+  Rendered projects/_form.html.erb (Duration: 7.3ms | Allocations: 4121)
+  Rendered projects/new.html.erb within layouts/application (Duration: 9.5ms | Allocations: 4492)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | Allocations: 20239)
+Completed 200 OK in 50ms (Views: 39.0ms | ActiveRecord: 0.4ms | Allocations: 23113)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddGroupIdToProjects (20220419162023)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "project" ADD "group_id" integer[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddGroupIdToProjects (20220419162023)
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "projects" ADD "group_id" integer[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aprojects" ("id" integer NOT NULL PRIMARY KEY, "projectname" varchar DEFAULT NULL, "projectdescription" varchar DEFAULT NULL, "startdate" varchar DEFAULT NULL, "enddate" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "group_id" integer DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "aprojects" ("id","projectname","projectdescription","startdate","enddate","created_at","updated_at","group_id")
+                     SELECT "id","projectname","projectdescription","startdate","enddate","created_at","updated_at","group_id" FROM "projects"[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "projects" ("id" integer NOT NULL PRIMARY KEY, "projectname" varchar DEFAULT NULL, "projectdescription" varchar DEFAULT NULL, "startdate" varchar DEFAULT NULL, "enddate" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "group_id" integer DEFAULT NULL, CONSTRAINT "fk_rails_a3d5742497"
+FOREIGN KEY ("group_id")
+  REFERENCES "groups" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "projects" ("id","projectname","projectdescription","startdate","enddate","created_at","updated_at","group_id")
+                     SELECT "id","projectname","projectdescription","startdate","enddate","created_at","updated_at","group_id" FROM "aprojects"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aprojects"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220419162023"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:23:04 -0400
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 7.8ms | Allocations: 7620)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 157)
+  Rendered layout layouts/application.html.erb (Duration: 41.6ms | Allocations: 45640)
+Completed 200 OK in 62ms (Views: 43.5ms | ActiveRecord: 0.6ms | Allocations: 54542)
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2022-04-19 12:23:09 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:60:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 139.2ms | Allocations: 342749)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 140.1ms | Allocations: 343156)
+  Rendered layout layouts/application.html.erb (Duration: 140.4ms | Allocations: 343237)
+Completed 500 Internal Server Error in 146ms (ActiveRecord: 0.2ms | Allocations: 346677)
+
+
+  
+ActionView::Template::Error (undefined method `collect' for nil:NilClass):
+    33: 
+    34:   <div class="field">
+    35:     <%= form.label :group %>
+    36:     <%= form.select :group_id, @groups.collect { |p| [p.groupname, p.id]}, {}, prompt: 'group'%>
+    37:   </div>
+    38: 
+    39:   <div class="actions">
+  
+app/views/projects/_form.html.erb:36
+app/views/projects/_form.html.erb:1
+app/views/projects/edit.html.erb:3
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:23:17 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (4.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 10.0ms | Allocations: 1032)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 17.1ms | Allocations: 3709)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 4.9ms | Allocations: 4264)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:23:45 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 10.1ms | Allocations: 7619)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 161)
+  Rendered layout layouts/application.html.erb (Duration: 61.6ms | Allocations: 45508)
+Completed 200 OK in 76ms (Views: 63.3ms | ActiveRecord: 0.7ms | Allocations: 54410)
+
+
+Started GET "/projects/2/edit" for 127.0.0.1 at 2022-04-19 12:23:46 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/projects/_form.html.erb:36:in `collect'
+  Rendered projects/_form.html.erb (Duration: 163.7ms | Allocations: 344769)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 165.1ms | Allocations: 345222)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 168.2ms | Allocations: 347892)
+Completed 200 OK in 186ms (Views: 169.4ms | ActiveRecord: 0.8ms | Allocations: 354056)
+
+
+Started PATCH "/projects/2" for 127.0.0.1 at 2022-04-19 12:23:49 -0400
+Processing by ProjectsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"Proj1", "projectdescription"=>"proj1description", "startdate"=>"1100", "enddate"=>"1102", "group_id"=>"4"}, "commit"=>"Update Project", "id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:40:in `block in update'
+  [1m[36mProject Update (0.2ms)[0m  [1m[33mUPDATE "projects" SET "updated_at" = ?, "group_id" = ? WHERE "projects"."id" = ?[0m  [["updated_at", "2022-04-19 16:23:49.591800"], ["group_id", 4], ["id", 2]]
+  ↳ app/controllers/projects_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/projects/2
+Completed 302 Found in 15ms (ActiveRecord: 3.4ms | Allocations: 4797)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:23:49 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.3ms | Allocations: 241)
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1443)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 4083)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 5334)
+
+
+Started GET "/projects/2" for 127.0.0.1 at 2022-04-19 12:24:10 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 1.7ms | Allocations: 196)
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (Duration: 10.9ms | Allocations: 6225)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 149)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 9376)
+Completed 200 OK in 19ms (Views: 15.1ms | ActiveRecord: 0.2ms | Allocations: 11364)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:24:12 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1259)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3813)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 4417)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:24:57 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:17
+  Rendered projects/index.html.erb within layouts/application (Duration: 13.6ms | Allocations: 7201)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 7300)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.2ms | Allocations: 8578)
+
+
+  
+ActionView::Template::Error (undefined method `groupname' for nil:NilClass):
+    20:         <td><%= project.projectdescription %></td>
+    21:         <td><%= project.startdate%></td>
+    22:         <td><%= project.enddate%></td>
+    23:         <td><%= project.group.groupname%></td>
+    24: 
+    25:         <td><%= link_to 'Show', project %></td>
+    26:         <td><%= link_to 'Edit', edit_project_path(project) %></td>
+  
+app/views/projects/index.html.erb:23
+app/views/projects/index.html.erb:17
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:25:25 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:17
+  [1m[36mGroup Load (0.2ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/projects/index.html.erb:23
+  Rendered projects/index.html.erb within layouts/application (Duration: 17.6ms | Allocations: 2343)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 154)
+  Rendered layout layouts/application.html.erb (Duration: 78.4ms | Allocations: 5496)
+Completed 200 OK in 84ms (Views: 80.4ms | ActiveRecord: 0.3ms | Allocations: 6849)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2022-04-19 12:25:39 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  [1m[36mGroup Load (1.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/projects/_form.html.erb:36:in `collect'
+  Rendered projects/_form.html.erb (Duration: 9.0ms | Allocations: 2939)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 12.5ms | Allocations: 3382)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 6468)
+Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 1.4ms | Allocations: 8387)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2022-04-19 12:25:42 -0400
+Processing by ProjectsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"f", "projectdescription"=>"fff", "startdate"=>"f", "enddate"=>"f", "group_id"=>"3"}, "commit"=>"Update Project", "id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:40:in `block in update'
+  [1m[36mProject Update (0.2ms)[0m  [1m[33mUPDATE "projects" SET "updated_at" = ?, "group_id" = ? WHERE "projects"."id" = ?[0m  [["updated_at", "2022-04-19 16:25:42.478387"], ["group_id", 3], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:40:in `block in update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:40:in `block in update'
+Redirected to http://127.0.0.1:3000/projects/1
+Completed 302 Found in 14ms (ActiveRecord: 2.2ms | Allocations: 3483)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-19 12:25:42 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:61:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.3ms | Allocations: 176)
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/projects/show.html.erb:26
+  Rendered projects/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1801)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 51)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 4331)
+Completed 200 OK in 10ms (Views: 7.8ms | ActiveRecord: 0.2ms | Allocations: 5516)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-19 12:25:45 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:17
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/projects/index.html.erb:23
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/projects/index.html.erb:23
+  Rendered projects/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 2865)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | Allocations: 5417)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.3ms | Allocations: 5954)
+
+
+>>>>>>> 3468090abde6711c98e1038a0a2a45e465647b50

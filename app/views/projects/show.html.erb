@@ -21,6 +21,11 @@
   <%= @project.enddate %>
 </p>
 
+<p>
+  <strong>Group:</strong>
+  <%= @project.group.groupname %>
+</p>
+
 <div>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
   <%= link_to "Back to projects", projects_path %>

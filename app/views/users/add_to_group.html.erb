@@ -6,7 +6,6 @@
   <br/>
   <%= f.label :group %>
   <%= f.select :group_id, @groups.collect { |p| [p.groupname, p.id]}, {}, prompt: 'group'%>
-  <%= hidden_field_tag :id, 26 %>
   <%= f.submit "Add", class: "btn btn-primary" %>
 <% end %>
 

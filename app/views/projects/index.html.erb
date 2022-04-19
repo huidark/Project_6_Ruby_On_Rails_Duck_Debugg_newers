@@ -8,6 +8,7 @@
       <th>Description</th>
       <th>Start Date</td>
       <th>End Date</td>
+      <th>Group</td>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,6 +20,7 @@
         <td><%= project.projectdescription %></td>
         <td><%= project.startdate%></td>
         <td><%= project.enddate%></td>
+        <td><%= project.group.groupname if project.group%></td>
 
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
