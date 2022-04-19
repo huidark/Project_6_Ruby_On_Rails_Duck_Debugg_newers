@@ -1,0 +1,17 @@
+<% provide(:title, "Student Dashboard") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Student Dashboard</title>  </head>
+  <body>
+    <div class="center jumbotron">
+        <h1>Student Dashboard</h1>
+        <h2>Welcome,<%= @user.name %> </h2>
+
+<%# add link to user group's projects %>
+  <%= link_to @user.group, groupsI_path, class: "btn btn-lg btn-primary" %>
+
+</div>
+
+  </body>
+</html>

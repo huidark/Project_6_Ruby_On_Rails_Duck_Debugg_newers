@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def dashboardU
+    @user = User.new
+  end 
+
   private
 
   def user_params
