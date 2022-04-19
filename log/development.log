@@ -31797,3 +31797,65 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4061)
 
 
+Started GET "/" for 127.0.0.1 at 2022-04-18 21:03:40 -0400
+  [1m[35m (32.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.2ms | Allocations: 865)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 156)
+  Rendered layout layouts/application.html.erb (Duration: 51.8ms | Allocations: 36613)
+Completed 200 OK in 64ms (Views: 54.0ms | ActiveRecord: 0.0ms | Allocations: 42780)
+
+
+Started GET "/signup" for 127.0.0.1 at 2022-04-18 21:03:43 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 410.7ms | Allocations: 341644)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 414.9ms | Allocations: 344210)
+Completed 200 OK in 435ms (Views: 416.8ms | ActiveRecord: 0.6ms | Allocations: 354304)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-04-18 21:03:49 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"user", "email"=>"u@gmail.com", "password_digest"=>"[FILTERED]", "admin"=>"0"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "u@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("admin", "name", "email", "password_digest", "created_at", "updated_at", "group_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["admin", 0], ["name", "user"], ["email", "u@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-04-19 01:03:49.739000"], ["updated_at", "2022-04-19 01:03:49.739000"], ["group_id", nil]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 26ms (ActiveRecord: 4.8ms | Allocations: 7534)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-04-18 21:03:49 -0400
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered sessions/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2709)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5279)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 6517)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-04-18 21:03:56 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"u@gmail.com", "password_digest"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "u@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.3ms | Allocations: 4198)
+
+
+  
+NameError (undefined local variable or method `dashboardU_path' for #<SessionsController:0x0000000000efb0>
+Did you mean?  dashboardA_path):
+  
+app/controllers/sessions_controller.rb:12:in `create'
