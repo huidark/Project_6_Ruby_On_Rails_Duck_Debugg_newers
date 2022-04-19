@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   root 'static_pages#home'
   
   get '/signup', to: 'users#new'
@@ -10,6 +11,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   # get '/dashboardU', to: 'users#index'
   get '/dashboardA', to: 'static_pages#dashboardA'
+  get '/projects', to: 'projects#index'
+
   resources :groups
 
 
