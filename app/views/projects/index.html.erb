@@ -6,6 +6,8 @@
     <tr>
       <th>Project Name</th>
       <th>Description</th>
+      <th>Start Date</td>
+      <th>End Date</td>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,9 +17,12 @@
       <tr>
         <td><%= project.projectname %></td>
         <td><%= project.projectdescription %></td>
+        <td><%= project.startdate%></td>
+        <td><%= project.enddate%></td>
+
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
-        <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# <% <td><%= link_to 'Destroy', project, method: :delete%>
       </tr>
     <% end %>
   </tbody>

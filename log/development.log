@@ -30352,3 +30352,1448 @@ Completed 200 OK in 250ms (Views: 225.0ms | ActiveRecord: 3.5ms | Allocations: 9
 
 
 >>>>>>> f20da526e3956540325921f10cc55a68befc2c8d
+Started GET "/" for 127.0.0.1 at 2022-04-18 20:55:11 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.7ms | Allocations: 865)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 156)
+  Rendered layout layouts/application.html.erb (Duration: 118.2ms | Allocations: 53255)
+Completed 200 OK in 140ms (Views: 122.7ms | ActiveRecord: 0.0ms | Allocations: 59421)
+
+
+Started GET "/signup" for 127.0.0.1 at 2022-04-18 20:55:16 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 363.7ms | Allocations: 343954)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 366.8ms | Allocations: 346516)
+Completed 200 OK in 434ms (Views: 368.2ms | ActiveRecord: 0.7ms | Allocations: 356609)
+
+
+Started POST "/users" for 127.0.0.1 at 2022-04-18 20:55:31 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"Kyle", "email"=>"k@gmail.com", "password_digest"=>"[FILTERED]", "admin"=>"1"}, "commit"=>"Create my account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "k@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("admin", "name", "email", "password_digest", "created_at", "updated_at", "group_id") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["admin", 1], ["name", "Kyle"], ["email", "k@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2022-04-19 00:55:31.214687"], ["updated_at", "2022-04-19 00:55:31.214687"], ["group_id", nil]]
+  ↳ app/controllers/users_controller.rb:12:in `create'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:12:in `create'
+Redirected to http://localhost:3000/login
+Completed 302 Found in 24ms (ActiveRecord: 3.2ms | Allocations: 7533)
+
+
+Started GET "/login" for 127.0.0.1 at 2022-04-18 20:55:31 -0400
+Processing by SessionsController#new as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:10:in `current_user'
+  Rendered sessions/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 2709)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 5279)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms | Allocations: 6518)
+
+
+Started POST "/login" for 127.0.0.1 at 2022-04-18 20:55:39 -0400
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "session"=>{"email"=>"k@gmail.com", "password_digest"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "k@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/dashboardA
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms | Allocations: 1161)
+
+
+Started GET "/dashboardA" for 127.0.0.1 at 2022-04-18 20:55:39 -0400
+Processing by StaticPagesController#dashboardA as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/dashboardA.html.erb within layouts/application
+  Rendered static_pages/dashboardA.html.erb within layouts/application (Duration: 3.2ms | Allocations: 281)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2631)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 3091)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:55:40 -0400
+Processing by GroupsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.4ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 1.4ms | Allocations: 244)
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 17.1ms | Allocations: 5138)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 7690)
+Completed 200 OK in 31ms (Views: 22.0ms | ActiveRecord: 1.1ms | Allocations: 11559)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 20:55:42 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 2.5ms | Allocations: 594)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2901)
+Completed 200 OK in 12ms (Views: 7.0ms | ActiveRecord: 0.3ms | Allocations: 4773)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 20:55:54 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2681)
+Completed 200 OK in 8ms (Views: 4.9ms | ActiveRecord: 0.1ms | Allocations: 3701)
+
+
+Started DELETE "/groups/3" for 127.0.0.1 at 2022-04-18 20:55:54 -0400
+Processing by GroupsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 14ms (ActiveRecord: 3.7ms | Allocations: 2879)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:55:54 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1269)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 3595)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.1ms | Allocations: 4065)
+
+
+Started GET "/groups/4" for 127.0.0.1 at 2022-04-18 20:55:55 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2681)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 3702)
+
+
+Started DELETE "/groups/4" for 127.0.0.1 at 2022-04-18 20:55:55 -0400
+Processing by GroupsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"4"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mGroup Destroy (0.5ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 13ms (ActiveRecord: 3.4ms | Allocations: 2695)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:55:55 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1104)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3430)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.1ms | Allocations: 3899)
+
+
+Started GET "/groups/5" for 127.0.0.1 at 2022-04-18 20:55:56 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2681)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.1ms | Allocations: 3701)
+
+
+Started DELETE "/groups/5" for 127.0.0.1 at 2022-04-18 20:55:56 -0400
+Processing by GroupsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"5"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 12ms (ActiveRecord: 3.5ms | Allocations: 2698)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:55:56 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered groups/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 945)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 3271)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 3740)
+
+
+Started GET "/groups/new" for 127.0.0.1 at 2022-04-18 20:55:57 -0400
+Processing by GroupsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering groups/new.html.erb within layouts/application
+  Rendered groups/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2254)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.5ms | Allocations: 4573)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 5115)
+
+
+Started POST "/groups" for 127.0.0.1 at 2022-04-18 20:55:59 -0400
+Processing by GroupsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "groupname"=>"test", "commit"=>"Create group"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: GroupsController, action: create, request: #<ActionDispatch::Request:0x00007f9798327698>, params: {"authenticity_token"=>"[FILTERED]", "groupname"=>"test", "commit"=>"Create group", "controller"=>"groups", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:17:in `create'
+  [1m[36mGroup Create (0.2ms)[0m  [1m[32mINSERT INTO "groups" ("groupname", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["groupname", "test"], ["created_at", "2022-04-19 00:55:59.318966"], ["updated_at", "2022-04-19 00:55:59.318966"]]
+  ↳ app/controllers/groups_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:17:in `create'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 14ms (ActiveRecord: 3.4ms | Allocations: 2850)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:55:59 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1104)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3430)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 3891)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 20:56:00 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2681)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 0.1ms | Allocations: 3701)
+
+
+Started GET "/groups/3/edit" for 127.0.0.1 at 2022-04-18 20:56:01 -0400
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:32:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 782)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3093)
+Completed 200 OK in 9ms (Views: 6.4ms | ActiveRecord: 0.1ms | Allocations: 4168)
+
+
+Started PATCH "/groups/3" for 127.0.0.1 at 2022-04-18 20:56:02 -0400
+Processing by GroupsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"groupname"=>"test21"}, "commit"=>"Save changes", "id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:37:in `update'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:38:in `update'
+  [1m[36mGroup Update (0.3ms)[0m  [1m[33mUPDATE "groups" SET "groupname" = ?, "updated_at" = ? WHERE "groups"."id" = ?[0m  [["groupname", "test21"], ["updated_at", "2022-04-19 00:56:02.748452"], ["id", 3]]
+  ↳ app/controllers/groups_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:38:in `update'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 14ms (ActiveRecord: 3.7ms | Allocations: 3359)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:56:02 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1104)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3430)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 3899)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 20:56:03 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2681)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3701)
+
+
+Started GET "/groups/3/edit" for 127.0.0.1 at 2022-04-18 20:56:04 -0400
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.3ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:32:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/edit.html.erb within layouts/application
+  Rendered groups/edit.html.erb within layouts/application (Duration: 1.0ms | Allocations: 467)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2778)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 3798)
+
+
+Started PATCH "/groups/3" for 127.0.0.1 at 2022-04-18 20:56:05 -0400
+Processing by GroupsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "group"=>{"groupname"=>"test2122"}, "commit"=>"Save changes", "id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:37:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:38:in `update'
+  [1m[36mGroup Update (0.2ms)[0m  [1m[33mUPDATE "groups" SET "groupname" = ?, "updated_at" = ? WHERE "groups"."id" = ?[0m  [["groupname", "test2122"], ["updated_at", "2022-04-19 00:56:05.678082"], ["id", 3]]
+  ↳ app/controllers/groups_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (4.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:38:in `update'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 14ms (ActiveRecord: 4.6ms | Allocations: 3187)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:56:05 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 54)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1104)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3430)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 3899)
+
+
+Started GET "/groups/3" for 127.0.0.1 at 2022-04-18 20:56:06 -0400
+Processing by GroupsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering groups/show.html.erb within layouts/application
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 375)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2681)
+Completed 200 OK in 7ms (Views: 5.1ms | ActiveRecord: 0.1ms | Allocations: 3701)
+
+
+Started DELETE "/groups/3" for 127.0.0.1 at 2022-04-18 20:56:06 -0400
+Processing by GroupsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mGroup Destroy (0.3ms)[0m  [1m[31mDELETE FROM "groups" WHERE "groups"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/groups_controller.rb:26:in `destroy'
+Redirected to http://localhost:3000/groupsI
+Completed 302 Found in 13ms (ActiveRecord: 3.4ms | Allocations: 2695)
+
+
+Started GET "/groupsI" for 127.0.0.1 at 2022-04-18 20:56:06 -0400
+Processing by GroupsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering groups/index.html.erb within layouts/application
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups"[0m
+  ↳ app/views/groups/index.html.erb:7
+  Rendered groups/_group.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered groups/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 945)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 3271)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 3740)
+
+
+Started GET "/groups/3/edit" for 127.0.0.1 at 2022-04-18 20:56:14 -0400
+Processing by GroupsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mGroup Load (0.1ms)[0m  [1m[34mSELECT "groups".* FROM "groups" WHERE "groups"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/groups_controller.rb:32:in `edit'
+Completed 404 Not Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1188)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Group with 'id'=3):
+  
+app/controllers/groups_controller.rb:32:in `edit'
+Started GET "/" for 127.0.0.1 at 2022-04-18 20:56:19 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.3ms | Allocations: 157)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2616)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 3146)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:56:21 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1346)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 9.0ms | Allocations: 3890)
+Completed 200 OK in 15ms (Views: 10.8ms | ActiveRecord: 0.2ms | Allocations: 5643)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 20:56:25 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 5.1ms | Allocations: 1852)
+  Rendered projects/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 2183)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 4497)
+Completed 200 OK in 19ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 9010)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-18 20:56:38 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"test", "projectdescription"=>"this is a test", "startdate"=>"04/18/22", "enddate"=>"04/20/22"}, "commit"=>"Create Project"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("projectname", "projectdescription", "startdate", "enddate", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["projectname", "test"], ["projectdescription", "this is a test"], ["startdate", "04/18/22"], ["enddate", "04/20/22"], ["created_at", "2022-04-19 00:56:38.868757"], ["updated_at", "2022-04-19 00:56:38.868757"]]
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 11ms (ActiveRecord: 2.8ms | Allocations: 2901)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:56:38 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.9ms | Allocations: 175)
+  Rendered projects/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 989)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3295)
+Completed 200 OK in 11ms (Views: 7.3ms | ActiveRecord: 0.2ms | Allocations: 5079)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:56:42 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 893)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3224)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 3684)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:56:47 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:56:50 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 885)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.8ms | Allocations: 3216)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.1ms | Allocations: 3675)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2022-04-18 20:56:51 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.2ms | Allocations: 1160)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1489)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3795)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 4881)
+
+
+Started PATCH "/projects/1" for 127.0.0.1 at 2022-04-18 20:56:55 -0400
+Processing by ProjectsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"test", "projectdescription"=>"this is a test222", "startdate"=>"04/18/22222", "enddate"=>"04/20/22"}, "commit"=>"Update Project", "id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:38:in `block in update'
+  [1m[36mProject Update (0.2ms)[0m  [1m[33mUPDATE "projects" SET "projectdescription" = ?, "startdate" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["projectdescription", "this is a test222"], ["startdate", "04/18/22222"], ["updated_at", "2022-04-19 00:56:55.028489"], ["id", 1]]
+  ↳ app/controllers/projects_controller.rb:38:in `block in update'
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:38:in `block in update'
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 13ms (ActiveRecord: 2.4ms | Allocations: 3295)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:56:55 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 399)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2708)
+Completed 200 OK in 7ms (Views: 4.4ms | ActiveRecord: 0.1ms | Allocations: 3751)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:56:57 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 885)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 3216)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 3675)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2022-04-18 20:57:00 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.3ms | Allocations: 1139)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1295)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3601)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 4633)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:57:02 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 885)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 3216)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 3675)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:57:09 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started DELETE "/projects/1" for 127.0.0.1 at 2022-04-18 20:57:14 -0400
+Processing by ProjectsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 14ms (ActiveRecord: 5.7ms | Allocations: 2790)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:57:14 -0400
+Processing by ProjectsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 766)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3100)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 3570)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:57:34 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:14
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 764)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 3095)
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.1ms | Allocations: 3554)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 20:57:36 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.9ms | Allocations: 1096)
+  Rendered projects/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1225)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3539)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 4002)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 20:58:29 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 4.5ms | Allocations: 1705)
+  Rendered projects/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2077)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 145)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 4956)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 0.0ms | Allocations: 6238)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-18 20:58:40 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"test", "projectdescription"=>"this is a test", "startdate"=>"04/18/22", "enddate"=>"04/22/22"}, "commit"=>"Create Project"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mProject Create (0.2ms)[0m  [1m[32mINSERT INTO "projects" ("projectname", "projectdescription", "startdate", "enddate", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["projectname", "test"], ["projectdescription", "this is a test"], ["startdate", "04/18/22"], ["enddate", "04/22/22"], ["created_at", "2022-04-19 00:58:40.086622"], ["updated_at", "2022-04-19 00:58:40.086622"]]
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms | Allocations: 2848)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:58:40 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.5ms | Allocations: 173)
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 964)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.4ms | Allocations: 3270)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 4468)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:58:41 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1247)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 3579)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 4117)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:58:48 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2700)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:58:51 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 3220)
+Completed 200 OK in 11ms (Views: 9.7ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:58:52 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:58:54 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3220)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2022-04-18 20:58:55 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 1.9ms | Allocations: 1141)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1467)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 3773)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.1ms | Allocations: 4858)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:58:56 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3220)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.5ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:58:56 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 2700)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:58:57 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 3220)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:58:58 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 3733)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:58:59 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3220)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:58:59 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:00 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 3220)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:00 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:02 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 5.0ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 3220)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.6ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:03 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 7.4ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:04 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | Allocations: 3220)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:04 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 0.2ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:06 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3220)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:06 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.2ms | Allocations: 2700)
+Completed 200 OK in 8ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:08 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3220)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1/edit" for 127.0.0.1 at 2022-04-18 20:59:10 -0400
+Processing by ProjectsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/edit.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.7ms | Allocations: 1139)
+  Rendered projects/edit.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1295)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 3601)
+Completed 200 OK in 14ms (Views: 10.3ms | ActiveRecord: 0.1ms | Allocations: 4633)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:12 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 3220)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:12 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.2ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:14 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3220)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:14 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.2ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.6ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:17 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 3220)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:18 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:18 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 3220)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:21 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2700)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.1ms | Allocations: 3735)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:25 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 889)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.7ms | Allocations: 3220)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms | Allocations: 3679)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:35 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 6.1ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started DELETE "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:36 -0400
+Processing by ProjectsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (4.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 13ms (ActiveRecord: 5.0ms | Allocations: 2777)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:36 -0400
+Processing by ProjectsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 766)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 3100)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 3570)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 20:59:37 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 2.0ms | Allocations: 1096)
+  Rendered projects/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1225)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 3539)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.0ms | Allocations: 4003)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-18 20:59:54 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"f", "projectdescription"=>"f", "startdate"=>"1", "enddate"=>"2"}, "commit"=>"Create Project"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("projectname", "projectdescription", "startdate", "enddate", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["projectname", "f"], ["projectdescription", "f"], ["startdate", "1"], ["enddate", "2"], ["created_at", "2022-04-19 00:59:54.922038"], ["updated_at", "2022-04-19 00:59:54.922038"]]
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 12ms (ActiveRecord: 3.3ms | Allocations: 2632)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:54 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.5ms | Allocations: 192)
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1100)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 146)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 3985)
+Completed 200 OK in 13ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 5924)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:57 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1288)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3620)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.1ms | Allocations: 4212)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 20:59:58 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2713)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 0.2ms | Allocations: 3770)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 20:59:59 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 881)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 3215)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.2ms | Allocations: 3675)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 21:00:48 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 881)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 3212)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.1ms | Allocations: 3669)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 21:00:49 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 6.3ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started DELETE "/projects/1" for 127.0.0.1 at 2022-04-18 21:00:50 -0400
+Processing by ProjectsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 11ms (ActiveRecord: 3.1ms | Allocations: 2815)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 21:00:50 -0400
+Processing by ProjectsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 766)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 3100)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.1ms | Allocations: 3570)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 21:00:51 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 4.2ms | Allocations: 1620)
+  Rendered projects/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 1948)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4262)
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.0ms | Allocations: 4782)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 21:00:53 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 3.0ms | Allocations: 1096)
+  Rendered projects/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1225)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 9.9ms | Allocations: 3539)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 4002)
+
+
+Started POST "/projects" for 127.0.0.1 at 2022-04-18 21:00:56 -0400
+Processing by ProjectsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "project"=>{"projectname"=>"f", "projectdescription"=>"f", "startdate"=>"f", "enddate"=>"f"}, "commit"=>"Create Project"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("projectname", "projectdescription", "startdate", "enddate", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["projectname", "f"], ["projectdescription", "f"], ["startdate", "f"], ["enddate", "f"], ["created_at", "2022-04-19 01:00:56.183725"], ["updated_at", "2022-04-19 01:00:56.183725"]]
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:27:in `block in create'
+Redirected to http://localhost:3000/projects/1
+Completed 302 Found in 11ms (ActiveRecord: 2.7ms | Allocations: 2688)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 21:00:56 -0400
+Processing by ProjectsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 399)
+  Rendered layouts/_header.html.erb (Duration: 0.2ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2705)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.1ms | Allocations: 3748)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 21:00:57 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 881)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 3212)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.1ms | Allocations: 3671)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 21:01:01 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.1ms | Allocations: 55)
+  Rendered projects/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 394)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 2700)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.1ms | Allocations: 3732)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 21:01:07 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1399)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 4316)
+Completed 200 OK in 17ms (Views: 14.4ms | ActiveRecord: 0.1ms | Allocations: 5608)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 21:01:32 -0400
+Processing by ProjectsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1393)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 148)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | Allocations: 4310)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.1ms | Allocations: 5658)
+
+
+Started GET "/projects/1" for 127.0.0.1 at 2022-04-18 21:01:33 -0400
+Processing by ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  Rendering layout layouts/application.html.erb
+  Rendering projects/show.html.erb within layouts/application
+  Rendered projects/_project.html.erb (Duration: 0.6ms | Allocations: 175)
+  Rendered projects/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 907)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 3213)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.1ms | Allocations: 4400)
+
+
+Started DELETE "/projects/1" for 127.0.0.1 at 2022-04-18 21:01:33 -0400
+Processing by ProjectsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:59:in `set_project'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:48:in `destroy'
+Redirected to http://localhost:3000/projects
+Completed 302 Found in 13ms (ActiveRecord: 4.6ms | Allocations: 2815)
+
+
+Started GET "/projects" for 127.0.0.1 at 2022-04-18 21:01:33 -0400
+Processing by ProjectsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering projects/index.html.erb within layouts/application
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  ↳ app/views/projects/index.html.erb:16
+  Rendered projects/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 767)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 49)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 3148)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.2ms | Allocations: 3668)
+
+
+Started GET "/projects/new" for 127.0.0.1 at 2022-04-18 21:01:34 -0400
+Processing by ProjectsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering projects/new.html.erb within layouts/application
+  Rendered projects/_form.html.erb (Duration: 3.1ms | Allocations: 1620)
+  Rendered projects/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1947)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 48)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 4261)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.0ms | Allocations: 4781)
+
+
+Started GET "/" for 127.0.0.1 at 2022-04-18 21:01:41 -0400
+Processing by StaticPagesController#home as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 1.1ms | Allocations: 455)
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 52)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 3000)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.0ms | Allocations: 4061)
+
+
