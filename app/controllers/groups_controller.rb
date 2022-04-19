@@ -50,6 +50,6 @@ class GroupsController < ApplicationController
 
 
   def group_params2
-    params.require(:group).permit(:groupname)
+    params.require(:group).permit(:groupname, :projects)
   end
 end
