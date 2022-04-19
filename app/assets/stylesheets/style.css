@@ -1,12 +1,13 @@
 body {
-    color: antiquewhite;
-    background: #868B8E;
+    color: black;
+    background: lightgrey;
 
 }
 
 h1 {
     font-family: 'Diagon', sans-serif;
-    color:#00A9FF;
+    font-weight:bold;
+    color: red;
 }
 .centerjumbotron {
     position: absolute;
@@ -20,7 +21,7 @@ h1 {
     color:white;
     position: relative;
     display: inline-block;
-    background: #868B8E;
+    background: darkgrey;
 }
 
 input[type="submit"] {
@@ -31,7 +32,7 @@ input[type="submit"] {
     bottom: -10px;
     padding: 10px 18px;
     border-radius: 8px;
-    background: #00A9FF;
+    background: red;
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
