@@ -1,0 +1,19 @@
+
+<p style="color: green"><%= notice %></p>
+<h1>Reviews</h1>
+<div id="reviews">
+  <% if @reviews %>
+    <% @reviews.each do |review|%>
+      <%= render review %>
+      <p>
+        Score:
+        <%= review.score %>
+        | Comment:
+        <%= review.comment%>
+      </p>
+    <% end %>
+  <% end%>
+</div>
+
+<%= link_to "New review", new_review_path %> |
+<%= link_to "Back to dashboard", dashboardU_path%>

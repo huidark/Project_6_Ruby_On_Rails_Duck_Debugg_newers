@@ -6,11 +6,39 @@
   <body>
     <div class="center jumbotron">
         <h1>Student Dashboard</h1>
-        <h2>Welcome,<%= @user.name %> </h2>
+        <h2>Welcome, <%= @user.name %> </h2>
+
 
 <%# add link to user group's projects %>
-  <%= link_to @user.group, groupsI_path, class: "btn btn-lg btn-primary" %>
-  <%= @user.inspect %>
+  <h2>Group: <%=@user.group.groupname if @user.group%> <%= "No group" if !@user.group%></h2>
+
+  <table>
+  <thead>
+    <tr>
+      <th>Project Name |</th> 
+      <th>Description |</th> 
+      <th>Start Date |</td> 
+      <th>End Date |</td> 
+      <th>Feedback </td>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @group.projects.each do |project| %>
+      <tr>
+        <td><%= project.projectname %> </td> 
+        <td><%= project.projectdescription %></td> 
+        <td><%= project.startdate%></td> 
+        <td><%= project.enddate%></td> 
+        <td><%= link_to "Reviews", controller: "reviews", action: "proj", id: project.id%></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2><%= link_to "Edit user", user_path(@user)%></h2>
 
 </div>
 

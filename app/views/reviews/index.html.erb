@@ -1,14 +1,24 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Reviews</h1>
-
 <div id="reviews">
-  <% @reviews.each do |review| %>
-    <%= render review %>
-    <p>
-      <%= link_to "Show this review", review %>
-    </p>
-  <% end %>
+  <% if Review.all %>
+    <% Review.all.each do |review|%>
+      <%= render review %>
+      <p>
+        Score:
+        <%= review.score %>
+        | Comment:
+        <%= review.comment%>
+        | Project:
+        <%= review.project.projectname%>
+        
+        | About:
+        <%= review.user.name%>
+      </p>
+    <% end %>
+  <% end%>
 </div>
-
+<%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
+<%= link_to "Back to dashboard", dashboardA_path if current_user.admin%>
 <%= link_to "New review", new_review_path %>

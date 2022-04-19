@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include SessionsHelper
   def index
     @Users = User.all
   end
@@ -54,6 +55,11 @@ class UsersController < ApplicationController
     else
       render 'add_to_group'
     end
+  end
+
+  def dashboardU
+    @user = current_user
+    @group = @user.group
   end
 
 

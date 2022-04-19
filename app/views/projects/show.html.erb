@@ -23,7 +23,7 @@
 
 <p>
   <strong>Group:</strong>
-  <%= @project.group.groupname %>
+  <%= @project.group.groupname if @project.group %>
 </p>
 
 <div>

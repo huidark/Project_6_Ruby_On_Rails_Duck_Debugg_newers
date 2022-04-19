@@ -1,10 +1,16 @@
 <%= render @user %>
 
 <div>
-  <%= @user.inspect%>
+  <strong><%= @user.name%></strong>
+  <br>
+  <strong><%= @user.email%></strong>
+  <br>
+  <strong><%= @user.group.groupname if @user.group%></strong>
+  <br>
   <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Add to group", add_to_group_path(@user.id) %> |
-  <%= link_to "Back to users", users_path %>
+  <%= link_to "Add to group", add_to_group_path(@user.id) if current_user.admin%> |
+  <%= link_to "Back to users", users_path if current_user.admin%>
+  <%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
 
   <%= button_to "Destroy this user", @user, method: :delete %>
 </div>

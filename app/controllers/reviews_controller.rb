@@ -52,6 +52,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def proj
+    @reviews = Review.where(project_id: params[:id])
+    @reviews = @reviews.where(user_id: current_user.id)
+    @project = Project.find(params[:id])
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
@@ -60,6 +67,6 @@ class ReviewsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.fetch(:review, {})
+      params.require(:review).permit(:comment, :score, :user_id, :project_id)
     end
 end
