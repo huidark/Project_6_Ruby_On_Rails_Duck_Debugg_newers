@@ -13,10 +13,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @groups = Group.all
   end
 
   # GET /projects/1/edit
   def edit
+    @groups = Group.all
   end
 
   # POST /projects or /projects.json
@@ -60,6 +62,6 @@ class ProjectsController < ApplicationController
     end
 
     def project_params
-      params.require(:project).permit(:projectname, :projectdescription,:startdate,:enddate)
+      params.require(:project).permit(:projectname, :projectdescription, :startdate, :enddate, :group_id)
     end
 end
