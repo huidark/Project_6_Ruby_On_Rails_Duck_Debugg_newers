@@ -1,0 +1,18 @@
+<% provide(:title, "Add to group") %>
+<h1>Add to group</h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= @user.inspect %>
+  <br/>
+  <%= f.label :group %>
+  <%= f.select :group_id, @groups.collect { |p| [p.groupname, p.id]}, {}, prompt: 'group'%>
+  <%= hidden_field_tag :id, 26 %>
+  <%= f.submit "Add", class: "btn btn-primary" %>
+<% end %>
+
+<br>
+
+<div>
+  <%= link_to "Show this user", @user %> |
+  <%= link_to "Back to users", users_path %>
+</div>
