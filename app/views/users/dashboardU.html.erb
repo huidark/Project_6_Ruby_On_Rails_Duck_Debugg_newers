@@ -25,6 +25,7 @@
   </thead>
 
   <tbody>
+  <% if @user.group%>
     <% @group.projects.each do |project| %>
       <tr>
         <td><%= project.projectname %> </td> 
@@ -34,6 +35,7 @@
         <td><%= link_to "Reviews", controller: "reviews", action: "proj", id: project.id%></td>
 
       </tr>
+    <% end %>
     <% end %>
   </tbody>
 </table>

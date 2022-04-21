@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to login_path
     else 
-      render 'new'
+      redirect_to signup_path, alert: "Invalid email or password (password must be 6 or more characters)"
     end
   end
 
