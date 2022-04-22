@@ -3,11 +3,11 @@ class ReviewsController < ApplicationController
 
   # GET /reviews
   def index
-    @reviews = Review.all
     @groups = Group.all
-    if (params[:id])
-      @group = Group.find(params[:id])
-      @users = @group.users
+    @reviews = Review.all
+    if params[:group_id]
+      @projects = Project.where(group_id: params[:group_id])
+      @reviews = Review.where(project_id: @projects)
     end
   end
 
