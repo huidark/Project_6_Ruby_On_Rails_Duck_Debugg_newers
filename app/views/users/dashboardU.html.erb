@@ -4,43 +4,44 @@
   <head>
     <title><%= yield(:title) %> | Student Dashboard</title>  </head>
   <body>
-    <div class="center jumbotron">
+    <div class="centerjumbotron">
         <h1>Student Dashboard</h1>
-        <h2>Welcome, <%= @user.name %> </h2>
+        <div class="space"></div>
+        <h2 class="left">Welcome, <%= @user.name %> </h2>
 
 
 <%# add link to user group's projects %>
-  <h2>Group: <%=@user.group.groupname if @user.group%> <%= "No group" if !@user.group%></h2>
+  <h2 class="left">Group: <%=@user.group.groupname if @user.group%> <%= "No group" if !@user.group%></h2>
 
+  <% if @user.group%>
   <table>
   <thead>
     <tr>
-      <th>Project Name |</th> 
-      <th>Description |</th> 
-      <th>Start Date |</td> 
-      <th>End Date |</td> 
-      <th>Feedback </td>
-      <th colspan="3"></th>
+      <th>Project Name</th>
+      <th>Description</th>
+      <th>Start Date</td>
+      <th>End Date</td>
+      <th>Group</td>
+      <th>Reviews</th>
     </tr>
   </thead>
 
   <tbody>
-  <% if @user.group%>
-    <% @group.projects.each do |project| %>
+    <% @user.group.projects.each do |project| %>
       <tr>
-        <td><%= project.projectname %> </td> 
-        <td><%= project.projectdescription %></td> 
-        <td><%= project.startdate%></td> 
-        <td><%= project.enddate%></td> 
+        <td><%= project.projectname %></td>
+        <td><%= project.projectdescription %></td>
+        <td><%= project.startdate%></td>
+        <td><%= project.enddate%></td>
+        <td><%= link_to project.group.groupname, project.group if project.group%></td>
         <td><%= link_to "Reviews", controller: "reviews", action: "proj", id: project.id%></td>
-
       </tr>
     <% end %>
-    <% end %>
   </tbody>
+  <% end%>
 </table>
-
-<h2><%= link_to "Edit user", user_path(@user)%></h2>
+<div class="space"></div>
+<h2><%= link_to "Show user", user_path(@user)%></h2>
 
 </div>
 <%= link_to "Log out", logout_path, method:

@@ -1,15 +1,19 @@
 
 <p style="color: green"><%= notice %></p>
-
+<div class="centerjumbotron">
 <h1>Users</h1>
+<div class="space"></div>
 
 <div id="users">
   <% @Users.each do |user| %>
     <%= render user %>
-    <p>
+    <div class="left bullet ctext">
       <%= link_to user.name, user %>
-    </p>
+    </div>
   <% end %>
 </div>
-
-<h2><%= link_to "Back to dashboard", dashboardA_path%></h2>
+<div class="space"></div>
+<h2>
+  <%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
+  <%= link_to "Back to dashboard", dashboardA_path if current_user.admin%></h2>
+</div>

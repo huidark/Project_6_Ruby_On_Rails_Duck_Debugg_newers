@@ -1,7 +1,6 @@
 body {
     color: black;
     background: lightgrey;
-
 }
 
 h1 {
@@ -9,13 +8,43 @@ h1 {
     font-weight:bold;
     color: red;
 }
+.left {
+    text-align: left;
+}
+.bullet{
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside
+}
+.ctext {
+    font-size: 15px;
+}
+.alert {
+    font-weight:bold;
+    color: red;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+.flex-child {
+    margin: 4px 4px 0px;
+}
+label {
+    margin-top: 4px;
+}
 .centerjumbotron {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    min-width: 400px;
+}
+.space {
+    width: 1px;
+    height: 8px;
 }
 .row{
     color:white;
@@ -39,4 +68,14 @@ input[type="submit"] {
     color: white;
     font-weight: 700;
     cursor: pointer;
-  }
+}
+
+th, td{
+    min-width: 70px;
+    text-align: left;
+    padding: 5px;
+}
+
+.small-column {
+    min-width: 40px;
+}

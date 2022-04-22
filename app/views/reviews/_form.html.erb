@@ -10,14 +10,14 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.select :user_id, current_user.group.users.collect { |p| [p.name, p.id]}, {}, prompt: 'user'%>
+  <div class="field flex-container">
+    <div class="flex-child"><%= form.label :user %></div>
+    <div class="flex-child"><%= form.select :user_id, current_user.group.users.collect { |p| [p.name, p.id]}, {}, prompt: 'user'%></div>
   </div>
 
-  <div class="field">
-    <%= form.label :projects %>
-    <%= form.select :project_id, current_user.group.projects.collect { |p| [p.projectname, p.id]}, {}, prompt: 'user'%>
+  <div class="field flex-container">
+    <div class="flex-child"><%= form.label :projects %></div>
+    <div class="flex-child"><%= form.select :project_id, current_user.group.projects.collect { |p| [p.projectname, p.id]}, {}, prompt: 'user'%></div>
   </div>
   <div class="field">
     

@@ -1,13 +1,12 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="centerjumbotron">
 <h1>Reviews</h1>
-
-
+<div class="space"></div>
 <div id="reviews">
   <% if Review.all %>
     <% Review.all.each do |review|%>
       <%= render review %>
-      <p>
+      <p class="left">
         Score:
         <%= review.score %>
         | Comment:
@@ -21,5 +20,7 @@
     <% end %>
   <% end%>
 </div>
-<%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
-<%= link_to "Back to dashboard", dashboardA_path if current_user.admin%>
+<div class="space"></div>
+<h2><%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
+<%= link_to "Back to dashboard", dashboardA_path if current_user.admin%></h2>
+</div>
