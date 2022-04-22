@@ -2,7 +2,21 @@ body {
     color: black;
     background: lightgrey;
 }
+header {
+    background-color: darkgrey;
+    text-align: right;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: right;
 
+
+}
+.navbar {
+    margin: 20px;
+ 
+    
+}
 h1 {
     font-family: 'Diagon', sans-serif;
     font-weight:bold;

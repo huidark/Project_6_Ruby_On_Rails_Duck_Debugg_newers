@@ -9,5 +9,5 @@ class User < ApplicationRecord
                       uniqueness: true # Valides email so it's under 255 characters using the VALID_EMAIL_REGEX, and it is not already in use
     validates :password_digest, presence: true, length: { minimum: 6 }
     has_secure_password
-
+ 
 end

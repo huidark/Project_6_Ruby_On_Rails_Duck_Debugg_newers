@@ -20,8 +20,8 @@
   </div>
   <h2><%= link_to "Edit this group", edit_group_path(@group) %> | 
   <% if current_user.admin%>
-  <%= link_to "Back to groups", groupsI_path %> | 
-  <%= link_to "Destroy this group", @group, method: :delete %></h2>
+  <%= link_to "Back to groups", groupsI_path %>  
+  <%= button_to "Destroy this group", @group, method: :delete %></h2>
   <% else%>
   <%= link_to "Back to dashboard", dashboardU_path %>
   <% end%>
