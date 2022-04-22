@@ -1,25 +1,25 @@
-# Duck Debuggers: JavaScript Game of Set
-
+# Duck Debuggers: Peer Evaluation Application
 ## About the Project
-This is Project 6 for the CSE 3901: Web Applications class during the Spring 2022 semester. For this project, 
+This is Project 6 for the CSE 3901: Web Applications class during the Spring 2022 semester. For this project, we designed a peer evaluation web appliciton by using the
+Ruby on Rails.
 
 
 ## Application Features
-
-
+- Authentication
+- Admin views and students view
+- Profile editing function
+  - Students can edit their name and email; admin can edit user name, email, group name, and project information
+- Review function
+  - students can leave comments and scores to their groupmates
 ### Built With
 * HTML5
 * CSS3
 * Ruby
 * Ruby on Rails
-
-
 ### Other tools used
 * VirtualBox
 * Ubuntu
 * VSCode
-
-
 ## Setup
 1. Clone the repository
 ```
@@ -56,6 +56,7 @@ rails server
 127.0.0.1/3000
 ```
 
+## How to use this peer review
 
 ## Team Responsibility
 ### Dishon Mmanyi
