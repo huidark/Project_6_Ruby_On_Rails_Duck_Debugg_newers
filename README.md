@@ -7,10 +7,11 @@ Ruby on Rails.
 ## Application Features
 - Authentication
 - Admin views and students view
+  - Students and admins have different views. Admin can see all the users, groups, projects and reviews. Students can only see their own profile and the received reviews.
 - Profile editing function
   - Students can edit their name and email; admin can edit user name, email, group name, and project information
 - Review function
-  - students can leave comments and scores to their groupmates
+  - Students can leave comments and scores to their groupmates
 ### Built With
 * HTML5
 * CSS3
@@ -56,8 +57,22 @@ rails server
 127.0.0.1/3000
 ```
 
-## How to use this peer review
+## How to use our peer evaluation application
+1. Click the sign up button on the main page
+2. Sign up as one student (not clicking the admin checkbox)
+3. Sign up a new admin account (clicking the admin checkbox)
+4. Log in as admin.
+5. Create a new group
+6. Assign the student into the group
+7. Create a new project
+8. Assign the group to the project
+9. Log out as admin
+10. Log in as student
+11. Now you can click the review button to leave reviews to yourself. If there are more than one studetn in the group, you can leave review to other groupmates.
 
+Notice:
+** Students must be assigned to a group and project must be assigned to a group to use the review function 
+** Users are not allowed to delete themselves **
 ## Team Responsibility
 ### Dishon Mmanyi
 
