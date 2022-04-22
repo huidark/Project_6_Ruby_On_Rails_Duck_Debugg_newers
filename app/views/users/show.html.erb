@@ -13,5 +13,7 @@
   <%= link_to "Back to users", users_path if current_user.admin%>
   <%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
   <div class="space"></div>
-  <%= link_to "Destroy this user", @user, method: :delete if current_user.admin && current_user != @user%></h2>
+  <%= button_to "Destroy this user", @user, method: :delete if current_user.admin && current_user != @user%></h2>
+
+  </h2>
 </div>
