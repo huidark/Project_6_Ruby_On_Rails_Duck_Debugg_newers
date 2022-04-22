@@ -1,3 +1,4 @@
+<% if current_user.admin %>
 <% provide(:title, "Add to group") %>
 <div class="centerjumbotron">
 <h1>Add to group</h1>
@@ -23,3 +24,6 @@
   <%= link_to "Back to users", users_path %>
 </h2>
 </div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

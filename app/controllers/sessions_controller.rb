@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   # POST /sessions
   def create
+
     user = User.find_by(email: params[:session][:email])
     if user #&& user.authenticate(sess_params2)
       log_in user

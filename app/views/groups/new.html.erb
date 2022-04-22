@@ -1,4 +1,4 @@
-
+<% if current_user.admin%>
 <% provide(:title, 'New Group') %>
 
 
@@ -14,3 +14,6 @@
     <div class="space"></div>
   </div>
 </div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

@@ -1,4 +1,5 @@
 <% provide(:title, "Edit user") %>
+<% if @user = current_user%>
 <div class="centerjumbotron">
 <h1>Editing user</h1>
 
@@ -11,3 +12,6 @@
   <%= link_to "Back to users", users_path %>
 </h2>
 </div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

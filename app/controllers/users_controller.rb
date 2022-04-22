@@ -13,10 +13,16 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
+    
     if @user.save
-      redirect_to login_path
+      if current_user
+        redirect_to users_path
+      else
+        redirect_to login_path
+      end
     else # not a valid email or password inputted by user
-      redirect_to signup_path, alert: "Invalid email or password (password must be 6 or more characters)"
+      
+      redirect_to signup_path, alert: "Email in use or invalid email"
     end
   end
 

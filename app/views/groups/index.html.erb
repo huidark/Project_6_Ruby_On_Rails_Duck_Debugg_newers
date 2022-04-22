@@ -1,3 +1,4 @@
+<% if current_user.admin%>
 <p style="color: green"><%= notice %></p>
 
 <div class="centerjumbotron">
@@ -16,4 +17,6 @@
   <h2><%= link_to "Back to Dashboard",dashboardA_path%></h2>
 </div>
 </div>
-
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

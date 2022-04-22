@@ -1,7 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<% if current_user.group == @project.group || current_user.admin %>
+<div class="centerjumbotron">
+
 
 <%= render @project %>
-<div class="centerjumbotron">
+<p style="color: green"><%= notice %></p>
 <h1>Project: <%= @project.projectname %></h1>
 <div class="space"></div>
 <div class="left ctext">
@@ -25,8 +27,22 @@
 </div>
 <div class="space"></div>
 <h2>
+  <% if current_user.admin%>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %> | 
-  <%= button_to "Destroy this group", @project, method: :delete %>
+   
+  
+  <%= link_to "Back to projects", projects_path %> 
+  <%= button_to "Destroy this project", @project, method: :delete %>
+  <% end%>
+  <% if !current_user.admin%>
+  <%= link_to "Back to dashboard", dashboardU_path%>
+  <% end%>
+  
 </h2>
 </div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>
+
+
+

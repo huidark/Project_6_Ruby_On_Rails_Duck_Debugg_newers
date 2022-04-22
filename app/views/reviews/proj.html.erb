@@ -1,4 +1,4 @@
-
+<% if @user = current_user %>
 <p style="color: green"><%= notice %></p>
 <div class="centerjumbotron">
 <h1>Reviews</h1>
@@ -20,3 +20,6 @@
 <h2><%= link_to "New review", new_review_path %> |
 <%= link_to "Back to dashboard", dashboardU_path%></h2>
 </div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

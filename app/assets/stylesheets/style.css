@@ -12,6 +12,9 @@ header {
 
 
 }
+input {
+    margin: auto;
+}
 .navbar {
     margin: 20px;
  

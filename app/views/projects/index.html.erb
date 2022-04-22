@@ -1,5 +1,7 @@
-<p style="color: green"><%= notice %></p>
+<% if current_user.admin%>
+
 <div class="centerjumbotron">
+<p style="color: green"><%= notice %></p>
 <h1>Projects List</h1>
 <div class="space"></div>
 <table>
@@ -10,7 +12,7 @@
       <th>Start Date</td>
       <th>End Date</td>
       <th>Group</td>
-      <th colspan="3"></th>
+
     </tr>
   </thead>
 
@@ -25,7 +27,7 @@
 
         <td class="small-column"><%= link_to 'Show', project %></td>
         <td class="small-column"><%= link_to 'Edit', edit_project_path(project) %></td>
-        <%# <% <td><%= link_to 'Destroy', project, method: :delete%>
+        <td><%= button_to 'Destroy', project, method: :delete%>
       </tr>
     <% end %>
   </tbody>
@@ -34,3 +36,6 @@
 <h2><%= link_to "New project", new_project_path %></h2>
 <h2><%= link_to "Back to dashboard", dashboardA_path%></h2>
 </div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

@@ -1,3 +1,4 @@
+<% if current_user.admin%>
 <% provide(:title, "Edit group") %>
 <div class="centerjumbotron">
 <h1>Update <%= @group.groupname %> </h1>
@@ -8,3 +9,6 @@
   <% end %>
 </div>
 </div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

@@ -1,3 +1,4 @@
+<% if !current_user.admin%>
 <% provide(:title, "Student Dashboard") %>
 <!DOCTYPE html>
 <html>
@@ -48,3 +49,6 @@
 
   </body>
 </html>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

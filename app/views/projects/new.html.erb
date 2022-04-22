@@ -1,3 +1,4 @@
+<%if current_user.admin%>
 <div class="centerjumbotron">
 <h1>New Project</h1>
 
@@ -5,3 +6,6 @@
 
 <h2><%= link_to 'Back to projects', projects_path %></h2>
 </div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>
