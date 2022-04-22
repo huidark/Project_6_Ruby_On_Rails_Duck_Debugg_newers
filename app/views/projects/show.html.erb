@@ -1,33 +1,32 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @project %>
-<p>
-  <strong>Projectname:</strong>
-  <%= @project.projectname %>
-</p>
-
-<p>
+<div class="centerjumbotron">
+<h1>Project: <%= @project.projectname %></h1>
+<div class="space"></div>
+<div class="left ctext">
   <strong>Description:</strong>
   <%= @project.projectdescription %>
-</p>
+</div>
 
-<p>
+<div class="left ctext">
   <strong>Start date:</strong>
   <%= @project.startdate %>
-</p>
+</div>
 
-<p>
+<div class="left ctext">
   <strong>End date:</strong>
   <%= @project.enddate %>
-</p>
+</div>
 
-<p>
+<div class="left ctext">
   <strong>Group:</strong>
   <%= @project.group.groupname if @project.group %>
-</p>
-
-<div>
+</div>
+<div class="space"></div>
+<h2>
   <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
-  <%= button_to "Destroy this project", @project, method: :delete %>
+  <%= link_to "Back to projects", projects_path %> | 
+  <%= link_to "Destroy this project", @project, method: :delete %>
+</h2>
 </div>

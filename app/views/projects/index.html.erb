@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
-
+<div class="centerjumbotron">
 <h1>Projects List</h1>
+<div class="space"></div>
 <table>
   <thead>
     <tr>
@@ -22,15 +23,14 @@
         <td><%= project.enddate%></td>
         <td><%= project.group.groupname if project.group%></td>
 
-        <td><%= link_to 'Show', project %></td>
-        <td><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td class="small-column"><%= link_to 'Show', project %></td>
+        <td class="small-column"><%= link_to 'Edit', edit_project_path(project) %></td>
         <%# <% <td><%= link_to 'Destroy', project, method: :delete%>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-
-<br>
-<%= link_to "New project", new_project_path %>
-<%= link_to "Back to dashboard", dashboardA_path%>
+<div class="space"></div>
+<h2><%= link_to "New project", new_project_path %></h2>
+<h2><%= link_to "Back to dashboard", dashboardA_path%></h2>
+</div>

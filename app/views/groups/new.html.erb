@@ -1,14 +1,16 @@
 
 <% provide(:title, 'New Group') %>
 
-<h1>New Group</h1>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+
+<div class="centerjumbotron">
+  <h1>New Group</h1>
+  <div>
     <%= form_with(model: @user, local: true) do |f| %>
-      <%= f.label "Name:"%>
+      <%= f.label "Group Name:"%>
       <%= f.text_field :groupname, class: 'form-control' %>
       <%= f.submit "Create group", class: "btn btn-primary" %>
     <% end %>
+    <div class="space"></div>
   </div>
 </div>

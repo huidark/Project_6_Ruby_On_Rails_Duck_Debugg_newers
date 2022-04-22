@@ -48,7 +48,11 @@ class ReviewsController < ApplicationController
     @review.destroy
 
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: "Review was successfully destroyed." }
+      if current_user.admin
+        format.html { redirect_to reviews_url, notice: "Review was successfully destroyed." }
+      else 
+        format.html { redirect_to dashboardU_path}
+      end
     end
   end
 

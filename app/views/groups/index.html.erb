@@ -1,15 +1,19 @@
 <p style="color: green"><%= notice %></p>
 
+<div class="centerjumbotron">
 <h1>Groups</h1>
 
-<h2><%= link_to "New Group", new_group_path %></h2>
 <div id="groups">
+  <div class="space"></div>
   <% @Groups.each do |group| %>
     <%= render group %>
-    <p>
+    <div class="left bullet ctext">
       <%= link_to group.groupname, group %>
-    </p>
+    </div>
   <% end %>
+  <div class="space"></div>
+  <h2><%= link_to "New Group", new_group_path %></h2>
   <h2><%= link_to "Back to Dashboard",dashboardA_path%></h2>
+</div>
 </div>
 

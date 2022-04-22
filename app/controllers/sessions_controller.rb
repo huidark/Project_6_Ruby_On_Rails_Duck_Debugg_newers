@@ -13,9 +13,7 @@ class SessionsController < ApplicationController
       end
       
     else
-      #redirect_to signup_path
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      redirect_to login_path, alert: "Invalid email/password combination"
     end
   end
 

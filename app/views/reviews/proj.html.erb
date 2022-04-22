@@ -1,19 +1,22 @@
 
 <p style="color: green"><%= notice %></p>
+<div class="centerjumbotron">
 <h1>Reviews</h1>
+<div class="space"></div>
 <div id="reviews">
   <% if @reviews %>
     <% @reviews.each do |review|%>
       <%= render review %>
-      <p>
+      <div class="left ctext">
         Score:
         <%= review.score %>
         | Comment:
         <%= review.comment%>
-      </p>
+      </div>
     <% end %>
   <% end%>
 </div>
-
-<%= link_to "New review", new_review_path %> |
-<%= link_to "Back to dashboard", dashboardU_path%>
+<div class="space"></div>
+<h2><%= link_to "New review", new_review_path %> |
+<%= link_to "Back to dashboard", dashboardU_path%></h2>
+</div>
