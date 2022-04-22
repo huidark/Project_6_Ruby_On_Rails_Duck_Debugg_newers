@@ -1,12 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
 
-  # GET /projects or /projects.json
+  # GET /projects
   def index
     @projects = Project.all
   end
 
-  # GET /projects/1 or /projects/1.json
+  # GET /projects/id
   def show
   end
 
@@ -16,12 +16,12 @@ class ProjectsController < ApplicationController
     @groups = Group.all
   end
 
-  # GET /projects/1/edit
+  # GET /projects/id/edit
   def edit
     @groups = Group.all
   end
 
-  # POST /projects or /projects.json
+  # POST /projects
   def create
     @project = Project.new(project_params)
 
@@ -34,7 +34,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /projects/1 or /projects/1.json
+  # PATCH/PUT /projects/id
   def update
     respond_to do |format|
       if @project.update(project_params)
@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
     end
   end
 
-  # DELETE /projects/1 or /projects/1.json
+  # DELETE /projects/id 
   def destroy
     @project.destroy
 

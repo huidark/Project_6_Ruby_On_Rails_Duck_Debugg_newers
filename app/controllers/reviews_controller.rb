@@ -1,12 +1,17 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
 
-  # GET /reviews or /reviews.json
+  # GET /reviews
   def index
     @reviews = Review.all
+    @groups = Group.all
+    if (params[:id])
+      @group = Group.find(params[:id])
+      @users = @group.users
+    end
   end
 
-  # GET /reviews/1 or /reviews/1.json
+  # GET /reviews/id
   def show
   end
 
@@ -15,11 +20,11 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
-  # GET /reviews/1/edit
+  # GET /reviews/id/edit
   def edit
   end
 
-  # POST /reviews or /reviews.json
+  # POST /reviews
   def create
     @review = Review.new(review_params)
 
@@ -32,7 +37,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /reviews/1 or /reviews/1.json
+  # PATCH/PUT /reviews/id
   def update
     respond_to do |format|
       if @review.update(review_params)
@@ -43,7 +48,7 @@ class ReviewsController < ApplicationController
     end
   end
 
-  # DELETE /reviews/1 or /reviews/1.json
+  # DELETE /reviews/id
   def destroy
     @review.destroy
 
@@ -52,6 +57,7 @@ class ReviewsController < ApplicationController
     end
   end
 
+  # Get proj into the reviews controller
   def proj
     @reviews = Review.where(project_id: params[:id])
     @reviews = @reviews.where(user_id: current_user.id)

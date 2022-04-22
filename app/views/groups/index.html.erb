@@ -3,6 +3,7 @@
 <h1>Groups</h1>
 
 <h2><%= link_to "New Group", new_group_path %></h2>
+
 <div id="groups">
   <% @Groups.each do |group| %>
     <%= render group %>
@@ -10,6 +11,7 @@
       <%= link_to group.groupname, group %>
     </p>
   <% end %>
+
   <h2><%= link_to "Back to Dashboard",dashboardA_path%></h2>
 </div>
 

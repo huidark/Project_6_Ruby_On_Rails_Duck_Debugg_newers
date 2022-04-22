@@ -3,7 +3,6 @@
 
 <h1>Users</h1>
 
-
 <div id="users">
   <% @Users.each do |user| %>
     <%= render user %>
@@ -12,4 +11,5 @@
     </p>
   <% end %>
 </div>
+
 <h2><%= link_to "Back to dashboard", dashboardA_path%></h2>
