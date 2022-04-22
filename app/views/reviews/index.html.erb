@@ -3,22 +3,43 @@
 <h1>Reviews</h1>
 <div class="space"></div>
 <div id="reviews">
-  <% if Review.all %>
-    <% Review.all.each do |review|%>
-      <%= render review %>
-      <p class="left">
-        Score:
-        <%= review.score %>
-        | Comment:
-        <%= review.comment%>
-        | Project:
-        <%= review.project.projectname%>
-        
-        | About:
-        <%= review.user.name%>
-      </p>
+  <% if @reviews %>
+    <%= form_tag(reviews_path, method: :get) do %>
+      <div class="flex-container">
+      <div class="flex-child">
+      <%= label_tag :group %>
+      </div>
+      <div class="flex-child">
+      <%= select_tag :group_id, options_for_select(@groups.collect { |p| [p.groupname, p.id]}, 'group')%>
+      </div>
+      </div>
+      <%= submit_tag "Filter Group", class: "btn btn-primary" %>
     <% end %>
+    <div class="space"></div>
+    <div class="space"></div>
+    <table>
+    <thead>
+      <tr>
+      <th><%= link_to "Group"%></th>
+      <th><%= link_to "Project"%></th>
+      <th><%= link_to "About"%></td>
+      <th><%= link_to "Score"%></td>
+      <th><%= link_to "Comment"%></td>
+      </tr>
+    </thead>
+    <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.project.group.groupname %></td>
+        <td><%= review.project.projectname %></td>
+        <td><%= review.user.name%></td>
+        <td><%= review.score%></td>
+        <td><%= review.comment%></td>
+      </tr>
+    <% end %>
+  </tbody>
   <% end%>
+  </table>
 </div>
 <div class="space"></div>
 <h2><%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
