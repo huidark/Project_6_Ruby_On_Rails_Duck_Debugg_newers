@@ -1,24 +1,71 @@
-# README
+# Duck Debuggers: JavaScript Game of Set
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About the Project
+This is Project 6 for the CSE 3901: Web Applications class during the Spring 2022 semester. For this project, 
 
-Things you may want to cover:
 
-* Ruby version
+## Application Features
 
-* System dependencies
 
-* Configuration
+### Built With
+* HTML5
+* CSS3
+* Ruby
+* Ruby on Rails
 
-* Database creation
 
-* Database initialization
+### Other tools used
+* VirtualBox
+* Ubuntu
+* VSCode
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Setup
+1. Clone the repository
+```
+git clone https://github.com/cse3901-2022sp-giles/Project_6_Ruby_On_Rails_Duck_Debugg_newers.git
+```
 
-* Deployment instructions
+2. Move into the project folder
+```
+cd Project_6_Ruby_On_Rails_Duck_Debugg_newers
+```
 
-* ...
+3. Update the required gems
+```
+bundle update
+```
+
+4. Update the required webpaker
+```
+rails webpacker:install
+```
+
+5. Run the database migration
+```
+rails db:migrate
+```
+
+6. Run the rails server
+```
+rails server
+```
+
+7. open the browser and type in the url
+```
+127.0.0.1/3000
+```
+
+
+## Team Responsibility
+### Dishon Mmanyi
+
+
+### Feifei Li
+
+
+### Kyle Stadler
+
+
+### Nolan Song
+
