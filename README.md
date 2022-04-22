@@ -1,7 +1,7 @@
 # Duck Debuggers: Peer Evaluation Application
 ## About the Project
 This is Project 6 for the CSE 3901: Web Applications class during the Spring 2022 semester. For this project, we designed a peer evaluation web appliciton by using the
-Ruby on Rails.
+Ruby on Rails. This peer evaluation appliction have differnt views for instructors and students. Students can leave comments and scores to themselves and their groupmates. Instructor can assign student into groups and assign projects to groups. They can also edit students' information and review scores.
 
 
 ## Application Features
@@ -70,9 +70,10 @@ rails server
 10. Log in as student
 11. Now you can click the review button to leave reviews to yourself. If there are more than one studetn in the group, you can leave review to other groupmates.
 
-Notice:
-** Students must be assigned to a group and project must be assigned to a group to use the review function 
-** Users are not allowed to delete themselves **
+### Notice:
+**Students must be assigned to a group and project must be assigned to a group to use the review function** <br>
+**Users are not allowed to delete themselves**
+
 ## Team Responsibility
 ### Dishon Mmanyi
 
