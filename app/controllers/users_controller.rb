@@ -104,10 +104,6 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password_digest, :admin, :group_id)
   end
 
-  def user_params2(user)
-    user.require(:user).permit(:name, :email, :password_digest, :admin, :group_id)
-  end
-
   def update_group_params
     params.require(:user).permit(:group_id)
   end
