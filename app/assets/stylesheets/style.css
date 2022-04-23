@@ -20,6 +20,10 @@ input {
  
     
 }
+.field_with_errors{
+
+    margin: auto auto;
+}
 h1 {
     font-family: 'Diagon', sans-serif;
     font-weight:bold;

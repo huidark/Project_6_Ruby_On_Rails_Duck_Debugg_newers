@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+ 
 
   <div class="field">
     <%= form.label :"project Name" %>
@@ -23,12 +24,12 @@
 
   <div class="field">
     <%= form.label :"Start Date" %>
-    <%= form.text_field :startdate %>
+    <%= form.date_field :startdate %>
   </div>
     
   <div class="field">
     <%= form.label :"End Date" %>
-    <%= form.text_field :enddate %>
+    <%= form.date_field :enddate %>
   </div>
 
   <div class="field">

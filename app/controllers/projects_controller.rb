@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
   # POST /projects
   def create
     @project = Project.new(project_params)
+    @groups = Group.all
 
     respond_to do |format|
       if @project.save
@@ -36,6 +37,8 @@ class ProjectsController < ApplicationController
 
   # PATCH/PUT /projects/id
   def update
+    @groups = Group.all
+
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to project_url(@project), notice: "Project was successfully updated." }

@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   # POST /sessions
   def create
 
-    user = User.find_by(email: params[:session][:email])
+    user = User.find_by(email: params[:session][:email].downcase)
     if user #&& user.authenticate(sess_params2)
       log_in user
       # Controls which view the user sees, dependent on if they're an admin or a user

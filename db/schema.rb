@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_22_005057) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_23_165518) do
   create_table "groups", force: :cascade do |t|
     t.string "groupname"
     t.datetime "created_at", null: false
@@ -20,8 +20,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_22_005057) do
   create_table "projects", force: :cascade do |t|
     t.string "projectname"
     t.string "projectdescription"
-    t.string "startdate"
-    t.string "enddate"
+    t.date "startdate"
+    t.date "enddate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "group_id"

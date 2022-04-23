@@ -1,4 +1,5 @@
 <%= form_with(model: review, local: true) do |form| %>
+  
   <% if review.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -10,6 +11,9 @@
       </ul>
     </div>
   <% end %>
+
+
+  
   <div class="field flex-container">
     <div class="flex-child"><%= form.label :user %></div>
     <div class="flex-child"><%= form.select :user_id, current_user.group.users.collect { |p| [p.name, p.id]}, {}, prompt: 'user'%></div>
@@ -25,6 +29,7 @@
     <%= form.text_field :comment %>
   </div>
 
+
   <div class="field">
     <%= form.label "Score" %>
     <%= form.text_field :score %>
@@ -35,4 +40,5 @@
   <div>
     <%= form.submit %>
   </div>
+  
 <% end %>
