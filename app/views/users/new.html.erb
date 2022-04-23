@@ -1,4 +1,40 @@
 <% provide(:title, 'Sign up') %>
+<%if current_user && current_user.admin%>
+  <div class="centerjumbotron">
+  <% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
+  <h1>Create a User</h1>
+  <div>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+     
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+      
+      <div class="flex-container">
+        <div class="flex-child">
+          <%= f.label :admin %>
+        </div>
+        <div class="flex-child">
+          <%= f.check_box :admin%>
+        </div>
+      </div>
+      <%= f.submit "Create User", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <br>
+  <h1>Create Multiple Users</h1>
+  <strong class="ctext">Create a user with the format<br>John Smith, johnsmith@email.com<br>for each line.</strong>
+  <div>
+    <%= form_with(:url => {:action => 'create'}) do |f| %>
+      <%= f.text_area(:text, size: '50x10')%>
+      <%= f.submit "Create Users", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  </div>
+<% else %>
 <div class="centerjumbotron">
   <h1>Sign up</h1>
   <% if alert %>
@@ -23,3 +59,4 @@
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
+<% end %>

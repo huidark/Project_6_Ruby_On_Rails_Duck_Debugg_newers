@@ -12,17 +12,36 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
-    
-    if @user.save
-      if current_user
-        redirect_to users_path
-      else
-        redirect_to login_path
+    failed = false
+    if params[:text]
+      users = params[:text].split("\n")
+      users = users.reject {|u| u.empty?}
+      users.each do |user| 
+        print user
+        str = user.split(", ")
+        @user = User.new
+        @user.name = str[0]
+        @user.email = str[1]
+        if @user.save
+        else
+          redirect_to signup_path, alert: "Failed at user: #{@user.name}. All previous users were created successfully."
+          failed = true
+        end
       end
-    else # not a valid email or password inputted by user
-      
-      redirect_to signup_path, alert: "Email in use or invalid email"
+      if !failed
+        redirect_to users_path
+      end
+    else
+      @user = User.new(user_params)
+      if @user.save
+        if current_user
+          redirect_to users_path
+        else
+          redirect_to login_path
+        end
+      else # not a valid email or password inputted by user
+        redirect_to signup_path, alert: "Email in use or invalid email"
+      end
     end
   end
 
@@ -83,6 +102,10 @@ class UsersController < ApplicationController
    # Only allow a list of trusted parameters through.
   def user_params
     params.require(:user).permit(:name, :email, :password_digest, :admin, :group_id)
+  end
+
+  def user_params2(user)
+    user.require(:user).permit(:name, :email, :password_digest, :admin, :group_id)
   end
 
   def update_group_params
