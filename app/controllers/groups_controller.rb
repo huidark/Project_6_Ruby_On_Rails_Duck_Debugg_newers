@@ -28,9 +28,22 @@ class GroupsController < ApplicationController
 
   # DELETE /groups/id
   def destroy
-    Group.find(params[:id]).destroy
-    flash[:success] = "Group deleted"
-    redirect_to groupsI_path
+    @group = Group.find(params[:id])
+    reviews = true
+    @group.projects.each do |project|
+      if project.reviews
+        reviews = false
+        break
+      end
+    end
+    if reviews
+      Group.find(params[:id]).destroy
+      flash[:success] = "Group deleted"
+      redirect_to groupsI_path
+    else
+      
+      render 'edit', alert: "Email in use or invalid email"
+    end
   end
 
   # GET /groups/id/edit

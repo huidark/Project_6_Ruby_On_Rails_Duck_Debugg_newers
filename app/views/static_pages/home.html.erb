@@ -1,3 +1,4 @@
+
 <% provide(:title, "Home") %>
 <!DOCTYPE html>
 <html>
@@ -5,7 +6,9 @@
     <title><%= yield(:title) %> | Peer Evaluation Tool</title>
     <link rel="stylesheet" href="style.css">
   </head>
+  <% if !current_user %>
   <body>
+  
     <div class="centerjumbotron">
         <h1>Duck Debuggers Peer Evaluation Tool</h1>
 
@@ -17,4 +20,7 @@
 </div>
 
   </body>
+  <% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>
 </html>

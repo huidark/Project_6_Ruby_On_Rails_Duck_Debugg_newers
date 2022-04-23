@@ -1,4 +1,7 @@
 <% if current_user.group == @group || current_user.admin%>
+<% if alert %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 <%= render @group %>
 <div class="centerjumbotron">
   <h1>Group: <%= @group.groupname %></h1>

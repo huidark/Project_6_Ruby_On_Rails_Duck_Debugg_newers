@@ -5,7 +5,7 @@
 <h1>Users</h1>
 <div class="space"></div>
 <h2><%= link_to "New user", signup_path%></h2>
-<div id="users">
+<div id="users", class="scrollable">
   <% @Users.each do |user| %>
     <%= render user %>
     <div class="left bullet ctext">

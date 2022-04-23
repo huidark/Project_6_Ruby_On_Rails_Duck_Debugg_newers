@@ -34,7 +34,7 @@
     <% end %>
   </div>
   </div>
-<% else %>
+<% elsif !current_user %>
 <div class="centerjumbotron">
   <h1>Sign up</h1>
   <% if alert %>
@@ -59,4 +59,6 @@
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
-<% end %>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

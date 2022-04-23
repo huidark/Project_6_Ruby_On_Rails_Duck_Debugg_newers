@@ -1,5 +1,5 @@
 <% provide(:title, "Edit user") %>
-<% if @user = current_user%>
+<% if @user == current_user || current_user.admin%>
 <div class="centerjumbotron">
 <h1>Editing user</h1>
 
@@ -9,7 +9,12 @@
 
 <h2>
   <%= link_to "Show this user", @user %> |
+  <% if current_user.admin%>
   <%= link_to "Back to users", users_path %>
+  <% else%>
+    <%= link_to "Back to dashboard", dashboardU_path %>
+  <% end%>
+
 </h2>
 </div>
 <% else %>

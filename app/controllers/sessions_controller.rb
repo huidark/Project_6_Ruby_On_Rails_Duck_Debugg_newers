@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       end
       
     else # Incorrect email address/need to make an account
-      redirect_to login_path, alert: "Email/password combination not found"
+      redirect_to login_path, alert: "Email not found"
     end
   end
   def destroy

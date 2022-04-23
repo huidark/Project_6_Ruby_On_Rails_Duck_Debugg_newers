@@ -4,7 +4,7 @@
 <p style="color: green"><%= notice %></p>
 <h1>Reviews</h1>
 <div class="space"></div>
-<div id="reviews">
+<div id="reviews", class="scrollable">
   <% if @reviews %>
     <%= form_tag(reviews_path, method: :get) do %>
       <div class="flex-container">
