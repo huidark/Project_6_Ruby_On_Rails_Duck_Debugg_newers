@@ -5,7 +5,6 @@ Ruby on Rails. This peer evaluation appliction have differnt views for instructo
 
 
 ## Application Features
-- Authentication
 - Admin views and students view
   - Students and admins have different views. Admin can see all the users, groups, projects and reviews. Students can only see their own profile and the received reviews.
 - Profile editing function
@@ -88,4 +87,8 @@ rails server
 
 
 ### Nolan Song
-
+- Login (User new/create and Sessions)
+- Users edit/delete, add user to group
+- Add multiple users via text area
+- Search reviews by group
+- Styling
