@@ -79,7 +79,10 @@ rails server
 
 
 ### Feifei Li
-
+- Projects controller, view and model
+- Styling
+- Testing
+- Documentation
 
 ### Kyle Stadler
 
