@@ -1,7 +1,8 @@
 <% if current_user.group == @group || current_user.admin%>
-<% if alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
+<% if flash.key? :errormessage %>
+  <p><%= flash[:errormessage] %></p>
+<% end %>
+
 <%= render @group %>
 <div class="centerjumbotron">
   <h1>Group: <%= @group.groupname %></h1>
@@ -30,6 +31,7 @@
   <% else%>
   <%= link_to "Back to dashboard", dashboardU_path %>
   <% end%>
+  
 </div>
 <% else%>
   <h1>You don't have permission to access this page!</h1>

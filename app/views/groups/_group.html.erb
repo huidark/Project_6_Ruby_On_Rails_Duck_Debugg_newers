@@ -1,2 +1,5 @@
 <div id="<%= dom_id group %>">
+<% if flash.key? :errormessage %>
+  <p><%= flash[:errormessage] %></p>
+<% end %>
 </div>

@@ -33,7 +33,6 @@ class GroupsController < ApplicationController
     @group.projects.each do |project|
       if project.reviews
         reviews = false
-        break
       end
     end
     if reviews
@@ -41,8 +40,8 @@ class GroupsController < ApplicationController
       flash[:success] = "Group deleted"
       redirect_to groupsI_path
     else
-      
-      render 'edit', alert: "Email in use or invalid email"
+      flash[:errormessage] = 'Message sent!'
+      @group = Group.find(params[:id])
     end
   end
 
