@@ -69,9 +69,17 @@ rails server
 10. Log in as student
 11. Now you can click the review button to leave reviews to yourself. If there are more than one studetn in the group, you can leave review to other groupmates.
 
+
+
 ### Notice:
 **Students must be assigned to a group and project must be assigned to a group to use the review function** <br>
 **Users are not allowed to delete themselves**
+
+## Challenges
+This project was the most time-consuming, frustrating thing most of us have had to do thus far in our computer science journey. From the start we had issues with authenticating a password up until the end where we just decided to scrap it. The professor/TAs had no idea how to fix it either, it was frustrating. We also ran into a lot of foreign key issues and making sure everything is linked up correctly, once again: very frustrating. We spent a lot of time bugfixing and running the program.
+
+## More Time
+Given more time, we would like to flesh out the reviews tab and give specific questions about each teammate that users can respond to. We would also do more in-depth styling and maybe use bootstrap or another fancy polish.
 
 ## Team Responsibility
 ### Dishon Mmanyi
@@ -87,6 +95,11 @@ rails server
 - Documentation
 
 ### Kyle Stadler
+- Groups controller, view and model
+- Reviews controller
+- Linking, database creation
+- Bug fixing, deep testing
+
 
 
 ### Nolan Song
