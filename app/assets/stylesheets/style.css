@@ -107,3 +107,11 @@ th, td{
 .small-column {
     min-width: 40px;
 }
+.alert{
+    display: block;
+    padding: 6px;
+    margin: 6px;
+    border-radius: 3px;
+    border: 1px solid rgb(180,180,180);
+    background-color: rgb(212,212,212);
+}

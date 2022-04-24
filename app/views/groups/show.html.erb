@@ -1,6 +1,7 @@
 <% if current_user.group == @group || current_user.admin%>
-<% if flash.key? :errormessage %>
-  <p><%= flash[:errormessage] %></p>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
 
 <%= render @group %>

@@ -40,8 +40,8 @@ class GroupsController < ApplicationController
       flash[:success] = "Group deleted"
       redirect_to groupsI_path
     else
-      flash[:errormessage] = 'Message sent!'
-      @group = Group.find(params[:id])
+      flash[:warning] = "Can not destroy a group when there are reviews in its projects"
+      redirect_to groupsI_path
     end
   end
 
