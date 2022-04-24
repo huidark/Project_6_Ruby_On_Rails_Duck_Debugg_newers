@@ -75,6 +75,9 @@ rails server
 
 ## Team Responsibility
 ### Dishon Mmanyi
+- Logout
+- Styling
+- Student view
 
 
 ### Feifei Li
