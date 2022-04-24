@@ -1,0 +1,44 @@
+<%= form_with(model: review, local: true) do |form| %>
+  
+  <% if review.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+        <% review.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <div class="field flex-container">
+    <div class="flex-child"><%= form.label :user %></div>
+    <div class="flex-child"><%= form.select :user_id, current_user.group.users.collect { |p| [p.name, p.id]}, {}, prompt: 'user'%></div>
+  </div>
+
+  <div class="field flex-container">
+    <div class="flex-child"><%= form.label :projects %></div>
+    <div class="flex-child"><%= form.select :project_id, current_user.group.projects.collect { |p| [p.projectname, p.id]}, {}, prompt: 'user'%></div>
+  </div>
+  <div class="field">
+    
+    <%= form.label "Comment" %>
+    <%= form.text_field :comment %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label "Score" %>
+    <%= form.text_field :score %>
+  </div>
+
+
+
+  <div>
+    <%= form.submit %>
+  </div>
+  
+<% end %>

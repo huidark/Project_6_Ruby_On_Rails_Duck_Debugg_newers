@@ -1,0 +1,22 @@
+<% provide(:title, "Edit user") %>
+<% if @user == current_user || current_user.admin%>
+<div class="centerjumbotron">
+<h1>Editing user</h1>
+
+<%= render "form", user: @user %>
+
+<br>
+
+<h2>
+  <%= link_to "Show this user", @user %> |
+  <% if current_user.admin%>
+  <%= link_to "Back to users", users_path %>
+  <% else%>
+    <%= link_to "Back to dashboard", dashboardU_path %>
+  <% end%>
+
+</h2>
+</div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

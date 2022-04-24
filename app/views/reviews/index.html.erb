@@ -1,0 +1,54 @@
+<% if current_user.admin%>
+
+<div class="centerjumbotron">
+<p style="color: green"><%= notice %></p>
+<h1>Reviews</h1>
+<div class="space"></div>
+<div id="reviews", class="scrollable">
+  <% if @reviews %>
+    <%= form_tag(reviews_path, method: :get) do %>
+      <div class="flex-container">
+      <div class="flex-child">
+      <%= label_tag :group %>
+      </div>
+      <div class="flex-child">
+      <%= select_tag :group_id, options_for_select(@groups.collect { |p| [p.groupname, p.id]}, 'group')%>
+      </div>
+      </div>
+      <%= submit_tag "Filter Group", class: "btn btn-primary" %>
+    <% end %>
+    <div class="space"></div>
+    <div class="space"></div>
+    <table>
+    <thead>
+      <tr>
+      <th><%= "Group"%></th>
+      <th><%="Project"%></th>
+      <th><%="About"%></td>
+      <th><%= "Score"%></td>
+      <th><%="Comment"%></td>
+      </tr>
+    </thead>
+    <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.project.group.groupname %></td>
+        <td><%= review.project.projectname %></td>
+        <td><%= review.user.name%></td>
+        <td><%= review.score%></td>
+        <td><%= review.comment%></td>
+        <td><%= button_to "Destroy this review", review, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end%>
+  </table>
+</div>
+
+<div class="space"></div>
+<h2><%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
+<%= link_to "Back to dashboard", dashboardA_path if current_user.admin%></h2>
+</div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

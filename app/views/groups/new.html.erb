@@ -1,0 +1,19 @@
+<% if current_user.admin%>
+<% provide(:title, 'New Group') %>
+
+
+
+<div class="centerjumbotron">
+  <h1>New Group</h1>
+  <div>
+    <%= form_with(model: @user, local: true) do |f| %>
+      <%= f.label "Group Name:"%>
+      <%= f.text_field :groupname, class: 'form-control' %>
+      <%= f.submit "Create group", class: "btn btn-primary" %>
+    <% end %>
+    <div class="space"></div>
+  </div>
+</div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

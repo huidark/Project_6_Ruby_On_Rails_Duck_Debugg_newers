@@ -1,0 +1,14 @@
+<% if current_user.admin%>
+<% provide(:title, "Edit group") %>
+<div class="centerjumbotron">
+<h1>Update <%= @group.groupname %> </h1>
+  <%= form_with(model: @group, local: false) do |f| %>
+    <%= f.label "New Name: " %>
+    <%= f.text_field :groupname, class: 'form-control' %>
+    <%= f.submit "Save changes", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

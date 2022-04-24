@@ -1,0 +1,30 @@
+<% if current_user == @user || current_user.admin %>
+<%= render @user %>
+
+<div class="centerjumbotron">
+  <h1>User: <%= @user.name%></h1>
+  <div class="space"></div>
+  <div class="left ctext"><strong>Email: </strong><%= @user.email%></div>
+  <% if !@user.admin%>
+  <div class="left ctext"><strong>Group: </strong><%= @user.group.groupname if @user.group%></div>
+  <% else %>
+  <div class="left ctext"><strong>ADMIN</strong>
+  <% end%>
+
+  <div class="space"></div>
+  <h2><%= link_to "Edit this user", edit_user_path(@user) %> |
+  <% if current_user.admin%>
+  <% if !@user.admin%>
+  <%= link_to "Add to group", add_to_group_path(@user.id)%> |
+  <% end%>
+  <% end%>
+  <%= link_to "Back to users", users_path if current_user.admin%>
+  <%= link_to "Back to dashboard", dashboardU_path if !current_user.admin%>
+  <div class="space"></div>
+  <%= button_to "Destroy this user", @user, method: :delete if current_user.admin && current_user != @user%></h2>
+
+  </h2>
+</div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

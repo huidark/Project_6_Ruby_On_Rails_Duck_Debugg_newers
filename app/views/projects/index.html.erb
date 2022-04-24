@@ -1,0 +1,41 @@
+<% if current_user.admin%>
+
+<div class="centerjumbotron">
+<p style="color: green"><%= notice %></p>
+<h1>Projects List</h1>
+<div class="space"></div>
+<table>
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Description</th>
+      <th>Start Date</td>
+      <th>End Date</td>
+      <th>Group</td>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <tr>
+        <td><%= project.projectname %></td>
+        <td><%= project.projectdescription %></td>
+        <td><%= project.startdate%></td>
+        <td><%= project.enddate%></td>
+        <td><%= project.group.groupname if project.group%></td>
+
+        <td class="small-column"><%= link_to 'Show', project %></td>
+        <td class="small-column"><%= link_to 'Edit', edit_project_path(project) %></td>
+        <td><%= button_to 'Destroy', project, method: :delete%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="space"></div>
+<h2><%= link_to "New project", new_project_path %></h2>
+<h2><%= link_to "Back to dashboard", dashboardA_path%></h2>
+</div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

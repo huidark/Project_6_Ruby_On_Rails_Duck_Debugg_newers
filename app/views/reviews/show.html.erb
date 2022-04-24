@@ -1,0 +1,33 @@
+<% if !current_user.admin%>
+
+<div class="centerjumbotron">
+<p style="color: green"><%= notice %></p>
+
+<%= render @review %>
+<p>
+  <strong>Person:</strong>
+  <%= @review.user.name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @review.comment %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @review.score %>
+</p>
+
+<h2>
+  <%= link_to "Edit this review", edit_review_path(@review) %> |
+  <%= link_to "Back to dashboard", dashboardU_path %>
+  
+
+  
+</h2>
+</div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>
+

@@ -1,0 +1,39 @@
+<% if current_user.group == @group || current_user.admin%>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<%= render @group %>
+<div class="centerjumbotron">
+  <h1>Group: <%= @group.groupname %></h1>
+  <div>
+  <div class="space"></div>
+  <% if @group.users %>
+    <h2 class="left">Group members:</h2>
+    <% @group.users.each do |user|%>
+      <div class="left bullet ctext"><%= user.name %></div>
+    <% end%>
+  <% end%>
+  <div class="space"></div>
+  <% if @group.projects %>
+    <h2 class="left">Projects:</h2>
+    <% @group.projects.each do |project|%>
+      <div class="left bullet ctext"><%=link_to project.projectname, project%></div>
+    <% end%>
+  <% end%>
+  <div class="space"></div>
+  </div>
+  <% if current_user.admin%>
+  <h2><%= link_to "Edit this group", edit_group_path(@group) %> | 
+  
+  <%= link_to "Back to groups", groupsI_path %>  
+  <%= button_to "Destroy this group", @group, method: :delete %></h2>
+  <% else%>
+  <%= link_to "Back to dashboard", dashboardU_path %>
+  <% end%>
+  
+</div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

@@ -1,0 +1,20 @@
+<% if current_user.admin%>
+<div class="centerjumbotron">
+
+<h1>Editing project</h1>
+
+<%= render "form", project: @project %>
+
+<br>
+
+<h2>
+  <%= link_to "Show this project", @project %> |
+  <%= link_to "Back to projects", projects_path %>
+  <%= button_to "Destroy this group", @project, method: :delete %>
+
+</h2>
+
+</div>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

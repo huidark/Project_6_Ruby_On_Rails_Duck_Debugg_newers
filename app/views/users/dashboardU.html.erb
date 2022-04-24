@@ -1,0 +1,54 @@
+<% if !current_user.admin%>
+<% provide(:title, "Student Dashboard") %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | Student Dashboard</title>  </head>
+  <body>
+    <div class="centerjumbotron">
+        <h1>Student Dashboard</h1>
+        <div class="space"></div>
+        <h2 class="left">Welcome, <%= @user.name %> </h2>
+
+
+<%# add link to user group's projects %>
+  <h2 class="left">Group: <%=@user.group.groupname if @user.group%> <%= "No group" if !@user.group%></h2>
+
+  <% if @user.group%>
+  <table>
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Description</th>
+      <th>Start Date</td>
+      <th>End Date</td>
+      <th>Group</td>
+      <th>Reviews</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user.group.projects.each do |project| %>
+      <tr>
+        <td><%= project.projectname %></td>
+        <td><%= project.projectdescription %></td>
+        <td><%= project.startdate%></td>
+        <td><%= project.enddate%></td>
+        <td><%= link_to project.group.groupname, project.group if project.group%></td>
+        <td><%= link_to "Reviews", controller: "reviews", action: "proj", id: project.id%></td>
+      </tr>
+    <% end %>
+  </tbody>
+  <% end%>
+</table>
+<div class="space"></div>
+<h2><%= link_to "Show user", user_path(@user)%></h2>
+
+</div>
+
+
+  </body>
+</html>
+<% else %>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>

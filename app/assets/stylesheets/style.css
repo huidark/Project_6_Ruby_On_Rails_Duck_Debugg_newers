@@ -1,26 +1,84 @@
 body {
-    color: antiquewhite;
-    background: #868B8E;
+    color: black;
+    background: lightgrey;
+}
+header {
+    background-color: darkgrey;
+    text-align: right;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-content: right;
+
 
 }
+.scrollable {
+    overflow: auto;
+    max-height: 350px;
+    max-width: 1000px;
 
+}
+input {
+    margin: auto;
+}
+.navbar {
+    margin: 20px;
+ 
+    
+}
+.field_with_errors{
+
+    margin: auto auto;
+}
 h1 {
     font-family: 'Diagon', sans-serif;
-    color:#00A9FF;
+    font-weight:bold;
+    color: red;
+}
+.left {
+    text-align: left;
+}
+.bullet{
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside
+}
+.ctext {
+    font-size: 15px;
+}
+.alert {
+    font-weight:bold;
+    color: red;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+.flex-child {
+    margin: 4px 4px 0px;
+}
+label {
+    margin-top: 4px;
 }
 .centerjumbotron {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    min-width: 400px;
+
+}
+.space {
+    width: 1px;
+    height: 8px;
 }
 .row{
     color:white;
     position: relative;
     display: inline-block;
-    background: #868B8E;
+    background: darkgrey;
 }
 
 input[type="submit"] {
@@ -31,11 +89,29 @@ input[type="submit"] {
     bottom: -10px;
     padding: 10px 18px;
     border-radius: 8px;
-    background: #00A9FF;
+    background: red;
     background-size: 200%;
     background-position: 0%;
     transition: 0.4s;
     color: white;
     font-weight: 700;
     cursor: pointer;
-  }
+}
+
+th, td{
+    min-width: 70px;
+    text-align: left;
+    padding: 5px;
+}
+
+.small-column {
+    min-width: 40px;
+}
+.alert{
+    display: block;
+    padding: 6px;
+    margin: 6px;
+    border-radius: 3px;
+    border: 1px solid rgb(180,180,180);
+    background-color: rgb(212,212,212);
+}

@@ -1,0 +1,43 @@
+<%= form_with(model: project) do |form| %>
+  <% if project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+      <ul>
+        <% project.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+  <div class="field">
+    <%= form.label :"project Name" %>
+    <%= form.text_field :projectname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Project Description"  %>
+    <%= form.text_field :projectdescription %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"Start Date" %>
+    <%= form.date_field :startdate %>
+  </div>
+    
+  <div class="field">
+    <%= form.label :"End Date" %>
+    <%= form.date_field :enddate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group %>
+    <%= form.select :group_id, @groups.collect { |p| [p.groupname, p.id]}, {}, prompt: 'group'%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

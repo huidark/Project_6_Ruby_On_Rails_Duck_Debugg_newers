@@ -1,0 +1,48 @@
+<% if current_user.group == @project.group || current_user.admin %>
+<div class="centerjumbotron">
+
+
+<%= render @project %>
+<p style="color: green"><%= notice %></p>
+<h1>Project: <%= @project.projectname %></h1>
+<div class="space"></div>
+<div class="left ctext">
+  <strong>Description:</strong>
+  <%= @project.projectdescription %>
+</div>
+
+<div class="left ctext">
+  <strong>Start date:</strong>
+  <%= @project.startdate %>
+</div>
+
+<div class="left ctext">
+  <strong>End date:</strong>
+  <%= @project.enddate %>
+</div>
+
+<div class="left ctext">
+  <strong>Group:</strong>
+  <%= @project.group.groupname if @project.group %>
+</div>
+<div class="space"></div>
+<h2>
+  <% if current_user.admin%>
+  <%= link_to "Edit this project", edit_project_path(@project) %> |
+   
+  
+  <%= link_to "Back to projects", projects_path %> 
+  <%= button_to "Destroy this project", @project, method: :delete %>
+  <% end%>
+  <% if !current_user.admin%>
+  <%= link_to "Back to dashboard", dashboardU_path%>
+  <% end%>
+  
+</h2>
+</div>
+<% else%>
+  <h1>You don't have permission to access this page!</h1>
+<%end%>
+
+
+
