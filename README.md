@@ -14,8 +14,8 @@ Ruby on Rails. This peer evaluation appliction have differnt views for instructo
 ### Built With
 * HTML5
 * CSS3
-* Ruby
-* Ruby on Rails
+* Ruby v3.0.1
+* Rails v7.0.2.3
 ### Other tools used
 * VirtualBox
 * Ubuntu
